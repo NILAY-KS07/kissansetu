@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KissanSetu - National Smart Farmer Procurement & Mandi Logistics Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SPLASH SCREEN ENTRANCE ANIMATION -->
+    <div id="app-entrance-splash" class="app-entrance-splash">
+        <div class="splash-content">
+            <div class="splash-logo-wrapper">
+                <div class="splash-logo-glow"></div>
+                <div class="splash-logo-icon">
+                    <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="splash-title">KissanSetu</h1>
+            <p class="splash-tagline">National Smart Farmer Procurement & Mandi Logistics Portal</p>
+            <div class="splash-loader-bar">
+                <div class="splash-progress" id="splash-progress"></div>
+            </div>
+            <span class="splash-status-text" id="splash-status-text">🌾 Initializing KissanSetu Procurement Engine...</span>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER NAVIGATION -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#dashboard" class="brand">
+                <div class="brand-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>KissanSetu</h1>
+                    <span>National Smart Farmer Procurement & Mandi Logistics</span>
+                </div>
+            </a>
+
+            <!-- Header Navigation Links -->
+            <nav class="header-nav" id="main-nav-links">
+                <a href="#dashboard" class="nav-link active">📊 Overview</a>
+                <a href="#flow-booking" class="nav-link">🎟️ Slot Booking</a>
+                <a href="#ai-quality" class="nav-link">🔍 AI Grading</a>
+                <a href="#weighbridge" class="nav-link">⚖️ Weighbridge</a>
+                <a href="#msp-rates" class="nav-link">💰 MSP Rates</a>
+                <a href="#sms-support" class="nav-link">📱 SMS/IVR</a>
+                <a href="#transparency" class="nav-link">⭐ Highlights</a>
+            </nav>
+
+            <div class="header-actions">
+                <div id="user-session-pill" class="status-pill" style="display:none; background:#0F172A; border-color:#0EA5E9;">
+                    <span id="session-user-name">Farmer Session</span>
+                    <button onclick="logoutFarmer()" style="background:none; border:none; color:#F87171; cursor:pointer; font-weight:700; margin-left:0.6rem; text-decoration:underline;">Logout</button>
+                </div>
+
+                <div class="status-pill" id="system-status-pill">
+                    <span class="status-dot"></span>
+                    <span>KissanSetu Live • Login Required</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- LIVE MSP RATES MARQUEE TICKER -->
+    <div class="msp-ticker-bar">
+        <div class="ticker-label">
+            ⚡ Live Govt. MSP (2026-27):
+        </div>
+        <div class="ticker-content">
+            <span class="ticker-item"><span class="ticker-crop">Wheat (Kanak):</span> <span class="ticker-val">₹2,425 / Q</span> <span class="ticker-badge">+₹150</span></span>
+            <span class="ticker-item"><span class="ticker-crop">Paddy (Grade A):</span> <span class="ticker-val">₹2,320 / Q</span> <span class="ticker-badge">+₹117</span></span>
+            <span class="ticker-item"><span class="ticker-crop">Mustard (Sarson):</span> <span class="ticker-val">₹5,650 / Q</span> <span class="ticker-badge">+₹300</span></span>
+            <span class="ticker-item"><span class="ticker-crop">Maize (Makka):</span> <span class="ticker-val">₹2,225 / Q</span> <span class="ticker-badge">+₹135</span></span>
+            <span class="ticker-item"><span class="ticker-crop">Gram (Chana):</span> <span class="ticker-val">₹5,440 / Q</span> <span class="ticker-badge">+₹210</span></span>
+        </div>
+    </div>
+
+    <!-- LANDING VIEW: AUTHENTICATION & REGISTRATION -->
+    <section class="auth-landing-wrapper" id="auth-landing-section">
+        <div class="auth-hero-card">
+            <div class="auth-hero-header">
+                <span class="badge-sih">GOVT. AGTECH INITIATIVE • FARMER PORTAL</span>
+                <h2>Welcome to KissanSetu Portal</h2>
+                <p>Login or Register your Aadhaar to access Smart Mandi Queueing & Direct MSP Procurement</p>
+            </div>
+
+            <!-- Auth Mode Switch Tabs -->
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" id="tab-btn-login" onclick="switchAuthMode('login')">
+                    🔑 Farmer Login (Phone / Aadhaar)
+                </button>
+                <button class="auth-tab-btn" id="tab-btn-register" onclick="switchAuthMode('register')">
+                    📝 Register New Farmer
+                </button>
+            </div>
+
+            <div class="auth-card-body">
+                <!-- FORM 1: LOGIN MODE -->
+                <div id="auth-view-login">
+                    <div class="login-sub-tabs">
+                        <button class="login-sub-tab active" id="sub-tab-phone" onclick="switchLoginMethod('phone')">📱 Phone Number</button>
+                        <button class="login-sub-tab" id="sub-tab-aadhaar" onclick="switchLoginMethod('aadhaar')">💳 Aadhaar Number</button>
+                    </div>
+
+                    <div class="form-group margin-top-sm" id="group-phone-input">
+                        <label for="landing-phone-input">Mobile Phone Number</label>
+                        <div class="input-with-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <input type="tel" id="landing-phone-input" placeholder="e.g. +91 XXXXXXXXXX">
+                        </div>
+                    </div>
+
+                    <div class="form-group margin-top-sm" id="group-aadhaar-input" style="display:none;">
+                        <label for="landing-aadhaar-input">12-Digit Aadhaar Number</label>
+                        <div class="input-with-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="7" y1="8" x2="17" y2="8"></line><line x1="7" y1="12" x2="13" y2="12"></line></svg>
+                            <input type="text" id="landing-aadhaar-input" placeholder="e.g. XXXX XXXX XXXX" maxlength="14">
+                        </div>
+                    </div>
+
+                    <div class="form-group margin-top-sm" id="group-otp-input" style="display:none;">
+                        <label for="landing-otp-input">Enter 4-Digit SMS OTP Code</label>
+                        <div class="input-with-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            <input type="text" id="landing-otp-input" placeholder="Enter XXXX" maxlength="4">
+                        </div>
+                        <span id="landing-otp-hint" style="color:#059669; font-size:0.82rem; font-weight:700; margin-top:0.4rem; display:block;"></span>
+                    </div>
+
+                    <div class="form-actions-full margin-top">
+                        <button class="btn btn-accent btn-xl" id="btn-landing-send-otp" onclick="sendLandingOtp()">
+                            📲 Send OTP Code via SMS
+                        </button>
+                        <button class="btn btn-primary btn-xl" id="btn-landing-verify-otp" onclick="verifyLandingOtp()" style="display:none;">
+                            ✓ Verify OTP & Unlock KissanSetu Portal
+                        </button>
+                    </div>
+                </div>
+
+                <!-- FORM 2: REGISTRATION MODE -->
+                <div id="auth-view-register" style="display:none;">
+                    <form id="farmer-registration-form" class="booking-form-grid" onsubmit="handleRegisterFarmer(event)">
+                        <div class="form-group">
+                            <label for="reg-farmer-name">Farmer Name</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <input type="text" id="reg-farmer-name" required placeholder="Full Name as per Aadhaar">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reg-farmer-phone">Mobile Number</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <input type="tel" id="reg-farmer-phone" required placeholder="e.g. +91 XXXXXXXXXX">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reg-farmer-aadhaar">12-Digit Aadhaar Number</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="7" y1="8" x2="17" y2="8"></line><line x1="7" y1="12" x2="13" y2="12"></line></svg>
+                                <input type="text" id="reg-farmer-aadhaar" required placeholder="e.g. XXXX XXXX XXXX" maxlength="14">
+                            </div>
+                        </div>
+
+                        <!-- CROP SELECTION WITH CUSTOM TYPE -->
+                        <div class="form-group">
+                            <label for="reg-farmer-crop">Primary Crop</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path></svg>
+                                <select id="reg-farmer-crop" required onchange="onCropSelectChange()">
+                                    <option value="Wheat" selected>Wheat (Kanak)</option>
+                                    <option value="Paddy (Grade A)">Paddy (Grade A)</option>
+                                    <option value="Maize">Maize (Makka)</option>
+                                    <option value="Mustard">Mustard (Sarson)</option>
+                                    <option value="Gram">Gram (Chana)</option>
+                                    <option value="__custom__">➕ Add & Type Custom Crop...</option>
+                                </select>
+                            </div>
+                            <div id="group-custom-crop" style="display:none; margin-top:0.4rem;">
+                                <input type="text" id="reg-custom-crop-input" placeholder="Type Custom Crop (e.g. Soyabean, Cotton, Sugarcane)">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reg-farmer-qty">Estimated Quantity (Quintals)</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                                <input type="number" id="reg-farmer-qty" value="50" min="1" max="500" required placeholder="Quintals">
+                            </div>
+                        </div>
+
+                        <!-- MANDI CENTER SELECTION WITH CUSTOM TYPE -->
+                        <div class="form-group">
+                            <label for="reg-farmer-center">Nearest Mandi Procurement Center</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <select id="reg-farmer-center" required onchange="onCenterSelectChange()">
+                                    <option value="Karnal Central Grain Mandi Hub #3" selected>Karnal Central Grain Mandi Hub #3</option>
+                                    <option value="Ludhiana Main Anaj Mandi">Ludhiana Main Anaj Mandi</option>
+                                    <option value="Jaipur Rural Procurement Depot">Jaipur Rural Procurement Depot</option>
+                                    <option value="Indore Krishi Upaj Mandi">Indore Krishi Upaj Mandi</option>
+                                    <option value="__custom__">➕ Add & Type Custom Mandi Center...</option>
+                                </select>
+                            </div>
+                            <div id="group-custom-center" style="display:none; margin-top:0.4rem;">
+                                <input type="text" id="reg-custom-center-input" placeholder="Type Custom Mandi Name & Location">
+                            </div>
+                        </div>
+
+                        <div class="form-actions-full">
+                            <button type="submit" class="btn btn-primary btn-xl">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                Register Farmer & Unlock Portal
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN APPLICATION CONTAINER (HIDDEN UNTIL AUTHENTICATION) -->
+    <div id="main-app-content" style="display:none;">
+
+        <!-- SIH DEMO ACTION BAR -->
+        <div class="sih-action-bar">
+            <div class="sih-bar-container">
+                <div class="sih-bar-info">
+                    <strong>⚡ KISSANSETU CONTROLS:</strong>
+                    <span>Test dynamic flow step-by-step or reset data back to zero</span>
+                </div>
+                <div class="sih-bar-btns">
+                    <button class="btn btn-outline btn-sm" onclick="demoCreateFarmer()">+ Add Demo Farmer</button>
+                    <button class="btn btn-outline btn-sm" onclick="demoBookSlot()">+ Book Demo Slot</button>
+                    <button class="btn btn-accent btn-sm" id="btn-demo-advance" onclick="advanceQueue()" disabled>⚡ Advance Queue</button>
+                    <button class="btn btn-danger btn-sm" onclick="resetDemo()">🗑 Reset Demo (0 Data)</button>
+                </div>
+            </div>
+        </div>
+
+        <main class="content-wrapper">
+            
+            <!-- SECTION 1: REAL-TIME DASHBOARD METRICS -->
+            <section class="dashboard-section" id="dashboard">
+                <div class="section-title-compact">
+                    <h2>KissanSetu Procurement Center Overview</h2>
+                    <p>Real-time metrics calculated dynamically from central application state</p>
+                </div>
+                
+                <div class="dashboard-cards">
+                    <div class="stat-card accent-green">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Farmers</span>
+                            <h3 class="stat-value" id="stat-total-farmers">0</h3>
+                            <span class="stat-sub">Registered farmers</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card accent-blue">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Today's Bookings</span>
+                            <h3 class="stat-value" id="stat-todays-bookings">0</h3>
+                            <span class="stat-sub">Active slot reservations</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card accent-amber">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Waiting Farmers</span>
+                            <h3 class="stat-value" id="stat-waiting-farmers">0</h3>
+                            <span class="stat-sub">In queue waiting line</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card accent-teal">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Completed Procurement</span>
+                            <h3 class="stat-value" id="stat-completed-proc">0</h3>
+                            <span class="stat-sub">Approved mandates</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card accent-green">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Quantity</span>
+                            <h3 class="stat-value" id="stat-total-qty">0 Q</h3>
+                            <span class="stat-sub">Verified net weight</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card accent-blue">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Procurement Value</span>
+                            <h3 class="stat-value" id="stat-total-val">₹0</h3>
+                            <span class="stat-sub">Total payout value</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card accent-teal">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Payments Completed</span>
+                            <h3 class="stat-value" id="stat-completed-payments">0</h3>
+                            <span class="stat-sub">Successful DBT credits</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REGISTERED FARMERS TABLE DIRECTORY -->
+            <section class="module-card">
+                <div class="table-container" style="margin-top:0;">
+                    <h3>Registered Farmers Directory</h3>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Farmer ID</th>
+                                    <th>Farmer Name</th>
+                                    <th>Mobile</th>
+                                    <th>Aadhaar No.</th>
+                                    <th>Crop</th>
+                                    <th>Est. Quantity</th>
+                                    <th>Center</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="farmers-table-body">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MAIN INTERACTIVE WORKFLOW CONTAINER (STEPS 1 TO 7) -->
+            <section class="flow-container" id="flow-booking">
+                <!-- Stepper Progress Navigation -->
+                <div class="stepper-nav">
+                    <button class="step-nav-btn active" data-step="1" id="nav-step-1">
+                        <span class="step-num">1</span>
+                        <span class="step-name">Slot Booking</span>
+                    </button>
+                    <div class="step-line"></div>
+                    <button class="step-nav-btn" data-step="2" id="nav-step-2">
+                        <span class="step-num">2</span>
+                        <span class="step-name">Digital Pass</span>
+                    </button>
+                    <div class="step-line"></div>
+                    <button class="step-nav-btn" data-step="3" id="nav-step-3">
+                        <span class="step-num">3</span>
+                        <span class="step-name">Real-Time Queue</span>
+                    </button>
+                    <div class="step-line"></div>
+                    <button class="step-nav-btn" data-step="4" id="nav-step-4">
+                        <span class="step-num">4</span>
+                        <span class="step-name">AI Quality</span>
+                    </button>
+                    <div class="step-line"></div>
+                    <button class="step-nav-btn" data-step="5" id="nav-step-5">
+                        <span class="step-num">5</span>
+                        <span class="step-name">Weighbridge</span>
+                    </button>
+                    <div class="step-line"></div>
+                    <button class="step-nav-btn" data-step="6" id="nav-step-6">
+                        <span class="step-num">6</span>
+                        <span class="step-name">MSP & Procurement</span>
+                    </button>
+                    <div class="step-line"></div>
+                    <button class="step-nav-btn" data-step="7" id="nav-step-7">
+                        <span class="step-num">7</span>
+                        <span class="step-name">Payment Status</span>
+                    </button>
+                </div>
+
+                <!-- STEP 1: FARMER SLOT BOOKING -->
+                <div class="step-panel active" id="panel-step-1">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="step-badge">FLOW STEP 1</span>
+                            <h2>1. Farmer Mandi Slot Booking</h2>
+                            <p>Select a registered farmer to reserve a Mandi procurement slot</p>
+                        </div>
+                    </div>
+
+                    <form id="booking-form" class="booking-form-grid" onsubmit="handleBookSlot(event)">
+                        <div class="form-group span-2">
+                            <label for="booking-farmer-select">Select Registered Farmer</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <select id="booking-farmer-select" required onchange="onBookingFarmerChange()">
+                                    <!-- Dynamically populated -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-crop">Crop Type</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path></svg>
+                                <input type="text" id="booking-crop" readonly placeholder="Auto-filled from Farmer profile">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-qty">Quantity (Quintals)</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                                <input type="number" id="booking-qty" min="1" max="500" required placeholder="Quintals">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-center">Procurement Center</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <input type="text" id="booking-center" readonly placeholder="Auto-filled Center">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-date">Date</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+                                <input type="date" id="booking-date" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-time">Time Slot</label>
+                            <div class="input-with-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <select id="booking-time" required>
+                                    <option value="10:00 AM - 11:00 AM" selected>10:00 AM - 11:00 AM</option>
+                                    <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                                    <option value="01:00 PM - 02:00 PM">01:00 PM - 02:00 PM</option>
+                                    <option value="02:00 PM - 03:00 PM">02:00 PM - 03:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions-full">
+                            <button type="submit" class="btn btn-primary btn-xl" id="btn-book-slot">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line></svg>
+                                Book Slot & Generate KissanSetu Digital Pass
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="table-container margin-top">
+                        <h3>Active Slot Bookings Directory</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Token</th>
+                                        <th>Farmer</th>
+                                        <th>Crop</th>
+                                        <th>Quantity</th>
+                                        <th>Center</th>
+                                        <th>Slot Date & Time</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bookings-table-body">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 2: DIGITAL TOKEN PASS -->
+                <div class="step-panel" id="panel-step-2">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="step-badge">FLOW STEP 2</span>
+                            <h2>2. KissanSetu Digital Pass</h2>
+                            <p>Instant digital queue authorization token generated for Mandi gate entry</p>
+                        </div>
+                    </div>
+
+                    <div class="token-wrapper" id="token-pass-container"></div>
+                </div>
+
+                <!-- STEP 3: REAL-TIME QUEUE MONITOR -->
+                <div class="step-panel" id="panel-step-3">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="step-badge">FLOW STEP 3</span>
+                            <h2>3. Real-Time Queue Monitor</h2>
+                            <p>Live visibility of procurement gate movement and estimated wait time</p>
+                        </div>
+                    </div>
+
+                    <div class="queue-grid">
+                        <div class="queue-status-box current-token-box">
+                            <div class="q-header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <span>CURRENT TOKEN SERVICED</span>
+                            </div>
+                            <div class="q-big-display pulse-green" id="queue-current-token">—</div>
+                            <span class="q-sub-text" id="queue-current-sub">Gate Counter #02</span>
+                        </div>
+
+                        <div class="queue-status-box your-token-box">
+                            <div class="q-header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <span>ACTIVE TOKEN</span>
+                            </div>
+                            <div class="q-big-display text-primary" id="queue-your-token">—</div>
+                            <span class="q-sub-text" id="queue-your-sub">Slot reservation</span>
+                        </div>
+
+                        <div class="queue-status-box people-ahead-box">
+                            <div class="q-header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                                <span>PEOPLE AHEAD</span>
+                            </div>
+                            <div class="q-big-display text-amber" id="queue-people-ahead">0</div>
+                            <span class="q-sub-text">Farmers currently ahead</span>
+                        </div>
+
+                        <div class="queue-status-box wait-time-box">
+                            <div class="q-header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"></path><circle cx="12" cy="12" r="9"></circle></svg>
+                                <span>ESTIMATED WAIT</span>
+                            </div>
+                            <div class="q-big-display text-blue" id="queue-est-wait">0 mins</div>
+                            <span class="q-sub-text">Calculated via throughput</span>
+                        </div>
+                    </div>
+
+                    <div class="queue-simulator-bar">
+                        <div class="sim-info">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            <div>
+                                <strong>Real-Time Queue Controller</strong>
+                                <p>Advance token sequence live as farmers pass through gate counter</p>
+                            </div>
+                        </div>
+                        <div class="sim-actions">
+                            <button class="btn btn-accent" id="btn-call-next-queue" onclick="advanceQueue()" disabled>
+                                ⚡ Call Next Token
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="queue-line-container">
+                        <span class="queue-line-title">Live Queue Sequence</span>
+                        <div class="queue-line-chips" id="queue-line-chips"></div>
+                    </div>
+
+                    <div class="panel-bottom-action">
+                        <button class="btn btn-primary btn-lg" onclick="goToStep(4)">
+                            Proceed to AI Quality Assessment
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 4: AI CROP QUALITY ASSESSMENT -->
+                <div class="step-panel" id="panel-step-4">
+                    <div class="panel-header" id="ai-quality">
+                        <div class="panel-title">
+                            <span class="step-badge">FLOW STEP 4</span>
+                            <h2>4. AI-Assisted Crop Quality Assessment</h2>
+                            <p>Live camera capture & computer vision grain analysis engine</p>
+                        </div>
+                    </div>
+
+                    <div class="demo-prototype-banner">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <span>MULTIMODAL AI VISION MODULE • GRAIN QUALITY INSPECTION ENGINE</span>
+                    </div>
+
+                    <div class="ai-assessment-grid">
+                        <div class="scanner-card">
+                            <div class="scanner-header">
+                                <span class="scanner-title">Live Grain Inspection & Capture</span>
+                                <span class="camera-status" id="camera-status-text">● Ready (Camera OFF)</span>
+                            </div>
+
+                            <div class="scanner-viewport" id="scanner-viewport-box">
+                                <video id="webcam-video" autoplay playsinline style="display:none; width:100%; height:100%; object-fit:cover;"></video>
+                                <canvas id="webcam-canvas" style="display:none;"></canvas>
+                                <img id="grain-preview-img" src="" alt="Grain Sample" style="display:none; width:100%; height:100%; object-fit:cover;">
+
+                                <div class="sample-display" id="sample-grain-view">
+                                    <div class="sample-label" id="sample-name-label">No crop sample captured yet</div>
+                                </div>
+
+                                <div class="scan-overlay">
+                                    <div class="scan-line" id="scan-line-anim"></div>
+                                    <div class="corner corner-tl"></div>
+                                    <div class="corner corner-tr"></div>
+                                    <div class="corner corner-bl"></div>
+                                    <div class="corner corner-br"></div>
+                                </div>
+                            </div>
+
+                            <div class="media-input-toolbar">
+                                <button class="btn btn-outline btn-sm" id="btn-camera-toggle" onclick="toggleWebcam()">
+                                    📷 Open Camera
+                                </button>
+                                <button class="btn btn-accent btn-sm" id="btn-snap-photo" onclick="captureWebcamPhoto()" style="display:none;">
+                                    📸 Capture Photo
+                                </button>
+                                <label class="btn btn-outline btn-sm upload-btn-label">
+                                    📁 Upload Sample Photo
+                                    <input type="file" id="grain-file-input" accept="image/*" onchange="handleFileUpload(event)">
+                                </label>
+                            </div>
+
+                            <div class="ai-model-selector-box">
+                                <div class="form-group">
+                                    <label for="ai-engine-select">Select Vision AI Engine</label>
+                                    <select id="ai-engine-select" class="ai-select" onchange="handleModelChange()">
+                                        <option value="gpt4o" selected>ChatGPT (GPT-4o Multimodal Vision)</option>
+                                        <option value="claude">Claude 3.5 Sonnet (Anthropic Vision)</option>
+                                        <option value="kissansetu">KissanSetu Custom Agri Vision Model</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="scanner-controls">
+                                <button class="btn btn-accent btn-full btn-lg" id="btn-run-ai" onclick="runAiQualityAnalysis()">
+                                    🔍 Analyze Crop Sample
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="ai-results-card">
+                            <div class="results-header">
+                                <h3>AI Quality Analysis Result</h3>
+                                <span class="time-stamp" id="ai-model-badge">Model: ChatGPT (GPT-4o)</span>
+                            </div>
+
+                            <div id="ai-results-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="panel-bottom-action">
+                        <button class="btn btn-primary btn-lg" onclick="goToStep(5)">
+                            Proceed to Digital Weighment
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 5: DIGITAL WEIGHMENT SYSTEM -->
+                <div class="step-panel" id="panel-step-5">
+                    <div class="panel-header" id="weighbridge">
+                        <div class="panel-title">
+                            <span class="step-badge">FLOW STEP 5</span>
+                            <h2>5. Digital Weighment System</h2>
+                            <p>Automated IoT weighbridge scale for 100% transparent tare & net weight calculation</p>
+                        </div>
+                    </div>
+
+                    <div class="weighment-wrapper">
+                        <div class="scale-display-card">
+                            <div class="scale-header">
+                                <div class="scale-info">
+                                    <span class="scale-title">KISSANSETU IoT WEIGHBRIDGE #02</span>
+                                    <span class="scale-subtitle">Calibrated sensor feed • Direct Mandi Sync</span>
+                                </div>
+                                <div class="scale-live-indicator" id="scale-status-pill">
+                                    <span class="live-dot" id="scale-status-dot"></span>
+                                    <span id="scale-status-text">OFFLINE</span>
+                                </div>
+                            </div>
+
+                            <div class="weighbridge-start-bar" style="display:flex; gap:0.75rem; margin-bottom:1.5rem;">
+                                <button class="btn btn-primary" id="btn-start-scale" onclick="startWeighbridgeSimulator()">
+                                    ⚡ Start Weighbridge Simulator
+                                </button>
+                                <button class="btn btn-outline" style="color:#FFFFFF; border-color:rgba(255,255,255,0.3);" onclick="connectPhysicalScale()">
+                                    🔌 Connect Physical Scale (Web Serial API)
+                                </button>
+                            </div>
+
+                            <div class="led-display-box">
+                                <span class="led-label">NET WEIGHT FOR PROCUREMENT</span>
+                                <div class="led-digits" id="scale-net-digits">0.0</div>
+                                <span class="led-unit">QUINTALS</span>
+                            </div>
+
+                            <div class="weight-breakdown-grid">
+                                <div class="weight-box gross">
+                                    <span class="wb-label">Gross Weight</span>
+                                    <div class="wb-value">
+                                        <span id="wb-gross">0.0</span>
+                                        <span class="wb-unit">Quintals</span>
+                                    </div>
+                                    <span class="wb-sub">Vehicle + Grain total</span>
+                                </div>
+
+                                <div class="weight-box minus-icon"><span>−</span></div>
+
+                                <div class="weight-box tare">
+                                    <span class="wb-label">Tare Weight</span>
+                                    <div class="wb-value">
+                                        <span id="wb-tare">0.0</span>
+                                        <span class="wb-unit">Quintals</span>
+                                    </div>
+                                    <span class="wb-sub">Vehicle / Bag deduction</span>
+                                </div>
+
+                                <div class="weight-box equals-icon"><span>=</span></div>
+
+                                <div class="weight-box net">
+                                    <span class="wb-label">Net Weight</span>
+                                    <div class="wb-value text-green">
+                                        <span id="wb-net">0.0</span>
+                                        <span class="wb-unit">Quintals</span>
+                                    </div>
+                                    <span class="wb-sub">Official payable quantity</span>
+                                </div>
+                            </div>
+
+                            <div class="scale-controls">
+                                <div class="fine-tune">
+                                    <span>Adjust Gross & Tare Weights:</span>
+                                    <div class="tune-btns">
+                                        <button class="btn-tune" onclick="adjustGrossWeight(5)">+5 Q Gross</button>
+                                        <button class="btn-tune" onclick="adjustGrossWeight(-5)">-5 Q Gross</button>
+                                        <button class="btn-tune" onclick="setTareWeight(2.5)">Set Tare (2.5 Q)</button>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-success btn-xl" id="btn-confirm-weighment" onclick="confirmWeighment()" disabled>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                    Confirm Weighment & Proceed
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 6: PROCUREMENT / MSP CALCULATOR -->
+                <div class="step-panel" id="panel-step-6">
+                    <div class="panel-header" id="msp-rates">
+                        <div class="panel-title">
+                            <span class="step-badge">FLOW STEP 6</span>
+                            <h2>6. Procurement & MSP Rate Calculation</h2>
+                            <p>Government Minimum Support Price transparent payout calculation</p>
+                        </div>
+                    </div>
+
+                    <div class="msp-layout-grid">
+                        <div class="msp-rates-card">
+                            <div class="card-title-bar" style="display:flex; align-items:center; gap:0.5rem;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                <h3>Live MSP Government Rates (2026-27)</h3>
+                            </div>
+                            
+                            <div class="rates-list" id="msp-rates-list-container">
+                                <div class="rate-item" id="rate-wheat">
+                                    <span class="r-crop">Wheat (Kanak)</span>
+                                    <span class="r-price">₹2,425 / Quintal</span>
+                                </div>
+                                <div class="rate-item" id="rate-paddy">
+                                    <span class="r-crop">Paddy (Grade A)</span>
+                                    <span class="r-price">₹2,320 / Quintal</span>
+                                </div>
+                                <div class="rate-item" id="rate-maize">
+                                    <span class="r-crop">Maize (Makka)</span>
+                                    <span class="r-price">₹2,225 / Quintal</span>
+                                </div>
+                                <div class="rate-item" id="rate-mustard">
+                                    <span class="r-crop">Mustard (Sarson)</span>
+                                    <span class="r-price">₹5,650 / Quintal</span>
+                                </div>
+                                <div class="rate-item" id="rate-gram">
+                                    <span class="r-crop">Gram (Chana)</span>
+                                    <span class="r-price">₹5,440 / Quintal</span>
+                                </div>
+                            </div>
+
+                            <div class="rate-guarantee-note" style="display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--primary-dark); background:var(--primary-light); padding:0.75rem; border-radius:var(--radius-md);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                <span>Full MSP Price Protection guaranteed under KissanSetu framework</span>
+                            </div>
+                        </div>
+
+                        <div class="msp-calc-card">
+                            <div class="card-title-bar" style="display:flex; align-items:center; gap:0.5rem;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line></svg>
+                                <h3>Verified Payout Calculation</h3>
+                            </div>
+
+                            <div class="calc-table" style="display:flex; flex-direction:column; gap:0.75rem; margin:1rem 0;">
+                                <div class="calc-row" style="display:flex; justify-content:space-between; font-size:0.9rem;">
+                                    <span class="c-label">Selected Crop</span>
+                                    <span class="c-val" id="msp-calc-crop" style="font-weight:700;">—</span>
+                                </div>
+                                <div class="calc-row" style="display:flex; justify-content:space-between; font-size:0.9rem;">
+                                    <span class="c-label">Verified Net Weight</span>
+                                    <span class="c-val" id="msp-calc-qty" style="font-weight:700;">0 Q</span>
+                                </div>
+                                <div class="calc-row" style="display:flex; justify-content:space-between; font-size:0.9rem;">
+                                    <span class="c-label">Official MSP Rate</span>
+                                    <span class="c-val" id="msp-calc-rate" style="font-weight:700;">₹0 / Quintal</span>
+                                </div>
+                                <div class="calc-row" style="display:flex; justify-content:space-between; font-size:0.9rem;">
+                                    <span class="c-label">Quality Multiplier</span>
+                                    <span class="c-val text-green" id="msp-calc-grade" style="font-weight:700; color:var(--primary-dark);">Full Rate</span>
+                                </div>
+                            </div>
+
+                            <div class="calc-total-box">
+                                <span class="total-label">ESTIMATED PAYOUT AMOUNT</span>
+                                <div class="total-amount" id="msp-calc-total">₹0</div>
+                                <span class="total-sub">Direct Benefit Transfer to Aadhaar Bank A/C</span>
+                            </div>
+
+                            <button class="btn btn-primary btn-full btn-lg" id="btn-approve-proc" onclick="approveProcurement()" disabled>
+                                Approve Procurement & Trigger Payment
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container margin-top">
+                        <h3>Procurement Mandates Directory</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Procurement ID</th>
+                                        <th>Token</th>
+                                        <th>Farmer</th>
+                                        <th>Crop</th>
+                                        <th>Verified Weight</th>
+                                        <th>MSP Rate</th>
+                                        <th>Total Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="procurement-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 7: PAYMENT STATUS TRACKER -->
+                <div class="step-panel" id="panel-step-7">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="step-badge">FLOW STEP 7</span>
+                            <h2>7. Payment Status & Transaction Receipt</h2>
+                            <p>End-to-end payment processing status and digital transaction voucher</p>
+                        </div>
+                    </div>
+
+                    <div class="payment-wrapper">
+                        <div class="payment-timeline-card">
+                            <h3>Procurement & Payment Tracker</h3>
+                            <div class="status-tracker" id="payment-tracker-steps" style="margin-top:1rem;"></div>
+                        </div>
+
+                        <div class="payment-receipt-card" id="payment-receipt-box"></div>
+                    </div>
+
+                    <div class="table-container margin-top">
+                        <h3>Payment Transactions Directory</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Txn Ref ID</th>
+                                        <th>Farmer Name</th>
+                                        <th>Amount</th>
+                                        <th>Payment Method</th>
+                                        <th>Timestamp</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="payments-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="panel-bottom-action">
+                        <button class="btn btn-outline btn-lg" onclick="goToStep(1)">
+                            ← Return to Slot Booking
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION 8: SMS & IVR SUPPORT -->
+            <section class="support-section" id="sms-support">
+                <div class="section-title-center">
+                    <span class="badge-accent">INCLUSIVITY MODULE</span>
+                    <h2>8. SMS & IVR Support for Feature Phone Farmers</h2>
+                    <p>Ensuring 100% digital coverage across non-smartphone users via automated telecom gateways</p>
+                </div>
+
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="sup-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <h3>SMS Queue Updates</h3>
+                        <p>Farmers can send a simple text message to check live token position without internet.</p>
+                        <div class="code-box">Send <code>STATUS KST-001</code> to <strong>56161</strong></div>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="sup-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <h3>IVR Queue Status</h3>
+                        <p>Automated multi-lingual voice response toll-free helpline announcing queue turns.</p>
+                        <div class="code-box">Dial Toll-Free: <strong>1800-KISSAN-SETU</strong></div>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="sup-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3>SMS Payment Alerts</h3>
+                        <p>Instant SMS notification sent upon weighment approval and direct bank deposit.</p>
+                        <div class="code-box">Auto SMS alert sent on transaction completion</div>
+                    </div>
+                </div>
+
+                <div class="sms-simulator-box">
+                    <div class="sim-phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-header">
+                                <span>KISSANSETU SMS BOT (56161)</span>
+                            </div>
+                            <div class="phone-messages" id="sms-msg-container"></div>
+                            <div class="phone-input-bar">
+                                <input type="text" id="sms-input" placeholder="Type SMS command...">
+                                <button onclick="sendSimulatedSms()">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sim-phone-desc">
+                        <h3>Try the Feature Phone SMS Simulator</h3>
+                        <p>Test how farmers without smartphones get real-time queue alerts using standard SMS commands.</p>
+                        <div class="sim-preset-buttons" style="display:flex; gap:0.5rem; margin-top:1rem;">
+                            <button class="btn btn-outline btn-sm" onclick="triggerPresetSms('STATUS')">Send: STATUS</button>
+                            <button class="btn btn-outline btn-sm" onclick="triggerPresetSms('PAYMENT')">Send: PAY STATUS</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 9: TRANSPARENCY & COMPARISON -->
+            <section class="transparency-section" id="transparency">
+                <div class="section-title-center">
+                    <span class="badge-accent">PROJECT HIGHLIGHT</span>
+                    <h2>9. Transparency & System Uniqueness</h2>
+                    <p>Comparing traditional mandi procurement bottlenecks vs. the KissanSetu automated framework</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Procurement Stage</th>
+                                <th class="col-traditional">Traditional Mandi Process</th>
+                                <th class="col-anvaya">KissanSetu Smart System</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Queue & Tokens</strong></td>
+                                <td class="col-traditional"><span class="tag tag-red">Physical Queue</span> Manual paper tokens, arbitrary delays & queue jumping</td>
+                                <td class="col-anvaya"><span class="tag tag-green">Digital Token</span> Automated token generation with slot allocation & QR pass</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Queue Visibility</strong></td>
+                                <td class="col-traditional"><span class="tag tag-red">Zero Visibility</span> Farmers wait 8–18 hours in mandi without knowing turn</td>
+                                <td class="col-anvaya"><span class="tag tag-green">Real-Time Queue</span> Live token display, wait estimation & SMS alerts</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quality Assessment</strong></td>
+                                <td class="col-traditional"><span class="tag tag-red">Manual Inspection</span> Subjective grading leading to forced price cuts</td>
+                                <td class="col-anvaya"><span class="tag tag-green">AI Assessment</span> Computer vision grain grading & moisture verification</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Weighment System</strong></td>
+                                <td class="col-traditional"><span class="tag tag-red">Manual Scales</span> Vulnerable to manual tare manipulation & errors</td>
+                                <td class="col-anvaya"><span class="tag tag-green">Digital Weighment</span> Calibrated IoT weighbridge with automatic net weight sync</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Payment Settlement</strong></td>
+                                <td class="col-traditional"><span class="tag tag-red">Delayed Cash/Cheque</span> Payment takes 7–15 days with middleman commissions</td>
+                                <td class="col-anvaya"><span class="tag tag-green">Direct DBT Payment</span> Transparent MSP calculation & direct bank transfer</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accessibility</strong></td>
+                                <td class="col-traditional"><span class="tag tag-red">Paper Dependency</span> Requires physical presence for every query</td>
+                                <td class="col-anvaya"><span class="tag tag-green">SMS & IVR Support</span> 100% accessible to non-smartphone farmers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>KissanSetu</h3>
+                    <p>National Smart Farmer Procurement & Mandi Logistics Portal • Digital Mandi Initiative</p>
+                </div>
+                <div class="footer-meta">
+                    <span>Toll-Free Helpline: 1800-KISSAN-SETU</span>
+                    <span>•</span>
+                    <span>Clean & Transparent Mandi Tech</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Service & Main Scripts -->
+    <script src="weighbridge.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
