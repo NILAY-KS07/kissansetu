@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KissanSetu | Payments</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+<body data-require-auth="true">
+<div class="dashboard-layout">
+<aside class="sidebar">
+<div class="brand">
+<div class="brand-mark">
+                KS
+            </div>
+<div>
+<div class="brand-name">
+                    Kissan<span>Setu</span>
+                </div>
+<span class="brand-subtitle">
+                    Farmer Portal
+                </span>
+</div>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-section-title">
+                Overview
+            </div>
+<a
+                href="dashboard.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="house"></i></span>
+                <span>Dashboard</span>
+            </a>
+<a
+                href="my-bookings.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="clipboard-list"></i></span>
+                <span>My Bookings</span>
+            </a>
+<div class="nav-section-title">
+                Procurement
+            </div>
+<a
+                href="book-slot.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="plus"></i></span>
+                <span>Book a Slot</span>
+            </a>
+<a
+                href="live-queue.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="clock-3"></i></span>
+                <span>Live Queue</span>
+            </a>
+<a
+                href="payments.html"
+                class="sidebar-link active"
+            >
+                <span class="sidebar-icon"><i data-lucide="indian-rupee"></i></span>
+                <span>Payments</span>
+            </a>
+<div class="nav-section-title">
+                Information
+            </div>
+<a
+                href="msp-rates.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="table-2"></i></span>
+                <span>MSP Rates</span>
+            </a>
+<a
+                href="help.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="circle-help"></i></span>
+                <span>Help & Support</span>
+            </a>
+</nav>
+    </aside>
+<main class="dashboard-main">
+<header class="topbar">
+<div class="topbar-left">
+<div>
+<h1>
+                        Payments
+                    </h1>
+<p>
+                        Track your procurement payments
+                    </p>
+</div>
+</div>
+<div class="topbar-right">
+<button
+                    type="button"
+                    class="notification-btn"
+                    aria-label="Notifications"
+                >
+                    <i data-lucide="bell"></i>
+<span class="notification-dot"></span>
+                </button>
+<div class="user-menu">
+<div class="avatar">
+                        —
+                    </div>
+<div class="user-info">
+<strong data-field="farmer-name">
+                            —
+                        </strong>
+<span>
+                            Farmer
+                        </span>
+</div>
+</div>
+</div>
+</header>
+<section class="dashboard-content">
+<div class="dashboard-welcome">
+<h2>
+                    Your payments
+                </h2>
+<p>
+                    View payment status and your previous procurement
+                    transactions.
+                </p>
+</div>
+<div class="stats-grid">
+<article class="card stat-card">
+<div class="stat-top">
+<span class="stat-label">
+                            Total received
+                        </span>
+<div class="stat-icon"><i data-lucide="indian-rupee"></i></div>
+</div>
+<div
+                        class="stat-value"
+                        data-field="total-received"
+                    >
+                        —
+                    </div>
+<div class="stat-meta">
+                        From completed procurements
+                    </div>
+</article>
+<article class="card stat-card">
+<div class="stat-top">
+<span class="stat-label">
+                            Pending payment
+                        </span>
+<div class="stat-icon"><i data-lucide="clock-3"></i></div>
+</div>
+<div
+                        class="stat-value"
+                        data-field="pending-payment"
+                    >
+                        —
+                    </div>
+<div class="stat-meta">
+                        Currently processing
+                    </div>
+</article>
+<article class="card stat-card">
+<div class="stat-top">
+<span class="stat-label">
+                            Completed
+                        </span>
+<div class="stat-icon">
+                            ✓
+                        </div>
+</div>
+<div
+                        class="stat-value"
+                        data-field="completed-count"
+                    >
+                        4
+                    </div>
+<div class="stat-meta">
+                        Successful transactions
+                    </div>
+</article>
+<article class="card stat-card">
+<div class="stat-top">
+<span class="stat-label">
+                            Current year
+                        </span>
+<div class="stat-icon">
+                            ↗
+                        </div>
+</div>
+<div class="stat-value">
+                        2026
+                    </div>
+<div class="stat-meta">
+                        Payment records
+                    </div>
+</article>
+</div>
+<div
+                class="card"
+                style="margin-bottom: 20px;"
+                data-payment-id="—"
+            >
+<div class="card-header">
+<div>
+<h3>
+                            Latest payment
+                        </h3>
+<p>
+                            Most recent completed procurement
+                        </p>
+</div>
+<span class="status-badge success">
+                        <span class="status-dot"></span>
+                        Completed
+                    </span>
+</div>
+<div class="card-body">
+<div
+                        style="
+                            display:grid;
+                            grid-template-columns:1.4fr 1fr 1fr 1fr;
+                            gap:24px;
+                            align-items:center;
+                        "
+                    >
+<div>
+<span class="stat-label">
+                                Amount received
+                            </span>
+<div
+                                style="
+                                    font-size:28px;
+                                    font-weight:800;
+                                    margin-top:5px;
+                                    letter-spacing:-0.8px;
+                                "
+                                data-field="payment-amount"
+                            >
+                                —
+                            </div>
+<div
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:var(--text-xs);
+                                    margin-top:4px;
+                                "
+                            >
+                                Wheat procurement
+                            </div>
+</div>
+<div>
+<span class="stat-label">
+                                Payment ID
+                            </span>
+<div
+                                style="
+                                    margin-top:7px;
+                                    font-size:var(--text-sm);
+                                    font-weight:700;
+                                "
+                                data-field="payment-id"
+                            >
+                                —
+                            </div>
+</div>
+<div>
+<span class="stat-label">
+                                Booking ID
+                            </span>
+<div
+                                style="
+                                    margin-top:7px;
+                                    font-size:var(--text-sm);
+                                    font-weight:700;
+                                "
+                                data-field="booking-id"
+                            >
+                                —
+                            </div>
+</div>
+<div>
+<span class="stat-label">
+                                Procurement date
+                            </span>
+<div
+                                style="
+                                    margin-top:7px;
+                                    font-size:var(--text-sm);
+                                    font-weight:700;
+                                "
+                                data-field="payment-date"
+                            >
+                                —
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div>
+<h3>
+                            Payment history
+                        </h3>
+<p>
+                            Your previous procurement payments
+                        </p>
+</div>
+<select
+                        class="form-select"
+                        id="payment-year-filter"
+                        style="width:120px;"
+                        data-filter="year"
+                    >
+<option value="2026">
+                            2026
+                        </option>
+<option value="2025">
+                            2025
+                        </option>
+<option value="2024">
+                            2024
+                        </option>
+</select>
+</div>
+<div class="card-body">
+<div style="overflow-x:auto;">
+<table
+                            id="payment-history"
+                            style="
+                                width:100%;
+                                border-collapse:collapse;
+                                font-size:var(--text-sm);
+                            "
+                        >
+<thead>
+<tr
+                                    style="
+                                        text-align:left;
+                                        color:var(--text-muted);
+                                        font-size:var(--text-xs);
+                                        border-bottom:1px solid var(--border-light);
+                                    "
+                                >
+<th
+                                        style="
+                                            padding:12px 10px;
+                                            font-weight:700;
+                                        "
+                                    >
+                                        Payment
+                                    </th>
+<th
+                                        style="
+                                            padding:12px 10px;
+                                            font-weight:700;
+                                        "
+                                    >
+                                        Produce
+                                    </th>
+<th
+                                        style="
+                                            padding:12px 10px;
+                                            font-weight:700;
+                                        "
+                                    >
+                                        Date
+                                    </th>
+<th
+                                        style="
+                                            padding:12px 10px;
+                                            font-weight:700;
+                                        "
+                                    >
+                                        Amount
+                                    </th>
+<th
+                                        style="
+                                            padding:12px 10px;
+                                            font-weight:700;
+                                        "
+                                    >
+                                        Status
+                                    </th>
+</tr>
+</thead>
+<tbody>
+<tr
+                                    data-payment-id="—"
+                                    data-status="completed"
+                                    style="
+                                        border-bottom:1px solid var(--border-light);
+                                    "
+                                >
+<td style="padding:16px 10px;">
+<strong>
+                                            —
+                                        </strong>
+<div
+                                            style="
+                                                color:var(--text-muted);
+                                                font-size:var(--text-xs);
+                                                margin-top:2px;
+                                            "
+                                        >
+                                            —
+                                        </div>
+</td>
+<td style="padding:16px 10px;">
+                                        Wheat
+                                    </td>
+<td style="padding:16px 10px;">
+                                        —
+                                    </td>
+<td style="padding:16px 10px;">
+<strong>
+                                            —
+                                        </strong>
+</td>
+<td style="padding:16px 10px;">
+<span class="status-badge success">
+                                            Completed
+                                        </span>
+</td>
+</tr>
+<tr
+                                    data-payment-id=""
+                                    data-status="completed"
+                                    style="
+                                        border-bottom:1px solid var(--border-light);
+                                    "
+                                >
+<td style="padding:16px 10px;">
+<strong>
+                                            —
+                                        </strong>
+<div
+                                            style="
+                                                color:var(--text-muted);
+                                                font-size:var(--text-xs);
+                                                margin-top:2px;
+                                            "
+                                        >
+                                            —
+                                        </div>
+</td>
+<td style="padding:16px 10px;">
+                                        Mustard
+                                    </td>
+<td style="padding:16px 10px;">
+                                        26 Jul 2026
+                                    </td>
+<td style="padding:16px 10px;">
+<strong>
+                                            —
+                                        </strong>
+</td>
+<td style="padding:16px 10px;">
+<span class="status-badge success">
+                                            Completed
+                                        </span>
+</td>
+</tr>
+<tr
+                                    data-payment-id=""
+                                    data-status="completed"
+                                    style="
+                                        border-bottom:1px solid var(--border-light);
+                                    "
+                                >
+<td style="padding:16px 10px;">
+<strong>
+                                            —
+                                        </strong>
+<div
+                                            style="
+                                                color:var(--text-muted);
+                                                font-size:var(--text-xs);
+                                                margin-top:2px;
+                                            "
+                                        >
+                                            —
+                                        </div>
+</td>
+<td style="padding:16px 10px;">
+                                        Wheat
+                                    </td>
+<td style="padding:16px 10px;">
+                                        12 Jun 2026
+                                    </td>
+<td style="padding:16px 10px;">
+<strong>
+                                            —
+                                        </strong>
+</td>
+<td style="padding:16px 10px;">
+<span class="status-badge success">
+                                            Completed
+                                        </span>
+</td>
+</tr>
+<tr
+                                    data-payment-id=""
+                                    data-status="completed"
+                                    style="
+                                        border-bottom:0;
+                                    "
+                                >
+<td style="padding:16px 10px;">
+<strong>
+                                            —
+                                        </strong>
+<div
+                                            style="
+                                                color:var(--text-muted);
+                                                font-size:var(--text-xs);
+                                                margin-top:2px;
+                                            "
+                                        >
+                                            —
+                                        </div>
+</td>
+<td style="padding:16px 10px;">
+                                        Mustard
+                                    </td>
+<td style="padding:16px 10px;">
+                                        21 May 2026
+                                    </td>
+<td style="padding:16px 10px;">
+<strong>
+                                            —
+                                        </strong>
+</td>
+<td style="padding:16px 10px;">
+<span class="status-badge success">
+                                            Completed
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div
+                class="dashboard-grid"
+                style="margin-top:20px;"
+            >
+<div class="card">
+<div class="card-header">
+<div>
+<h3>
+                                How payments work
+                            </h3>
+<p>
+                                From procurement to payment
+                            </p>
+</div>
+</div>
+<div class="card-body">
+<div class="activity-list">
+<div class="activity-item">
+<div class="activity-icon">
+                                    1
+                                </div>
+<div class="activity-content">
+<strong>
+                                        Produce is procured
+                                    </strong>
+<p>
+                                        The procurement centre verifies
+                                        your produce and recorded quantity.
+                                    </p>
+</div>
+</div>
+<div class="activity-item">
+<div class="activity-icon">
+                                    2
+                                </div>
+<div class="activity-content">
+<strong>
+                                        Payment is initiated
+                                    </strong>
+<p>
+                                        The verified procurement record
+                                        is processed for payment.
+                                    </p>
+</div>
+</div>
+<div class="activity-item">
+<div class="activity-icon">
+                                    3
+                                </div>
+<div class="activity-content">
+<strong>
+                                        Payment is completed
+                                    </strong>
+<p>
+                                        Once processed, the transaction
+                                        appears in your payment history.
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div>
+<h3>
+                                Payment information
+                            </h3>
+<p>
+                                Understanding your status
+                            </p>
+</div>
+</div>
+<div class="card-body">
+<div class="activity-list">
+<div class="activity-item">
+<div class="activity-icon">
+                                    ✓
+                                </div>
+<div class="activity-content">
+<strong>
+                                        Completed
+                                    </strong>
+<p>
+                                        Payment has been successfully
+                                        processed.
+                                    </p>
+</div>
+</div>
+<div class="activity-item">
+<div class="activity-icon">
+                                    <i data-lucide="clock-3"></i>
+                                </div>
+<div class="activity-content">
+<strong>
+                                        Processing
+                                    </strong>
+<p>
+                                        Payment is currently being
+                                        processed.
+                                    </p>
+</div>
+</div>
+<div class="activity-item">
+<div class="activity-icon">
+                                    i
+                                </div>
+<div class="activity-content">
+<strong>
+                                        Need help?
+                                    </strong>
+<p>
+                                        Visit Help &amp; Support if a
+                                        payment needs attention.
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<script src="https://unpkg.com/lucide@latest"></script><script src="script.js"></script>
+</body>
+</html>

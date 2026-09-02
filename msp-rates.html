@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSP Rates | KissanSetu</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+<body data-require-auth="true">
+<div class="dashboard-layout">
+<aside class="sidebar">
+<div class="brand">
+<div class="brand-mark">
+                KS
+            </div>
+<div>
+                <div class="brand-name">
+                    Kissan<span>Setu</span>
+                </div>
+<span class="brand-subtitle">
+                    Farmer Portal
+                </span>
+            </div>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-section-title">
+                Overview
+            </div>
+<a
+                href="dashboard.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="house"></i></span>
+                <span>Dashboard</span>
+            </a>
+<a
+                href="my-bookings.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="clipboard-list"></i></span>
+                <span>My Bookings</span>
+            </a>
+<div class="nav-section-title">
+                Procurement
+            </div>
+<a
+                href="book-slot.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="plus"></i></span>
+                <span>Book a Slot</span>
+            </a>
+<a
+                href="live-queue.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="clock-3"></i></span>
+                <span>Live Queue</span>
+            </a>
+<a
+                href="payments.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="indian-rupee"></i></span>
+                <span>Payments</span>
+            </a>
+<div class="nav-section-title">
+                Information
+            </div>
+<a
+                href="msp-rates.html"
+                class="sidebar-link active"
+            >
+                <span class="sidebar-icon"><i data-lucide="table-2"></i></span>
+                <span>MSP Rates</span>
+            </a>
+<a
+                href="help.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="circle-help"></i></span>
+                <span>Help & Support</span>
+            </a>
+</nav>
+    </aside>
+<main class="dashboard-main">
+<header class="topbar">
+<div class="topbar-left">
+<div>
+<h1>
+                        MSP Rates
+                    </h1>
+<p>
+                        Know the minimum support price for your crops
+                    </p>
+</div>
+</div>
+<div class="topbar-right">
+<button
+                    type="button"
+                    class="notification-btn"
+                    aria-label="Notifications"
+                >
+                    <i data-lucide="bell"></i>
+<span class="notification-dot"></span>
+                </button>
+<div class="user-menu">
+<div class="avatar">
+                        —
+                    </div>
+<div class="user-info">
+<strong data-field="farmer-name">
+                            —
+                        </strong>
+<span>
+                            Farmer
+                        </span>
+</div>
+</div>
+</div>
+</header>
+<section class="dashboard-content">
+<div class="dashboard-welcome">
+<h2>
+                    Minimum Support Prices
+                </h2>
+<p>
+                    Check the current reference MSP for major
+                    agricultural crops before planning your procurement.
+                </p>
+</div>
+<div
+                class="card"
+                style="margin-bottom:20px;"
+            >
+<div class="card-body">
+<div
+                        style="
+                            display:flex;
+                            justify-content:space-between;
+                            align-items:center;
+                            gap:20px;
+                            flex-wrap:wrap;
+                        "
+                    >
+<div>
+<span class="stat-label">
+                                MSP reference year
+                            </span>
+<div
+                                style="
+                                    font-size:24px;
+                                    font-weight:800;
+                                    margin-top:5px;
+                                "
+                                data-field="msp-year"
+                            >
+                                Kharif &amp; Rabi 2026–27
+                            </div>
+<div
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:var(--text-xs);
+                                    margin-top:5px;
+                                "
+                                data-field="msp-last-updated"
+                            >
+                                Rates shown as a reference for procurement planning
+                            </div>
+</div>
+<select
+                            class="form-select"
+                            id="msp-season"
+                            data-filter="season"
+                            style="width:170px;"
+                        >
+<option value="all">
+                                All crops
+                            </option>
+<option value="kharif">
+                                Kharif crops
+                            </option>
+<option value="rabi">
+                                Rabi crops
+                            </option>
+</select>
+</div>
+</div>
+</div>
+<div class="stats-grid">
+<article
+                    class="card stat-card"
+                    data-crop="wheat"
+                >
+<div class="stat-top">
+<span class="stat-label">
+                            Wheat
+                        </span>
+<div class="stat-icon">
+                            W
+                        </div>
+</div>
+<div
+                        class="stat-value"
+                        data-field="msp-wheat"
+                    >
+                        —
+                    </div>
+<div class="stat-meta">
+                        Per quintal · Rabi
+                    </div>
+</article>
+<article
+                    class="card stat-card"
+                    data-crop="mustard"
+                >
+<div class="stat-top">
+<span class="stat-label">
+                            Mustard
+                        </span>
+<div class="stat-icon">
+                            M
+                        </div>
+</div>
+<div
+                        class="stat-value"
+                        data-field="msp-mustard"
+                    >
+                        —
+                    </div>
+<div class="stat-meta">
+                        Per quintal · Rabi
+                    </div>
+</article>
+<article
+                    class="card stat-card"
+                    data-crop="gram"
+                >
+<div class="stat-top">
+<span class="stat-label">
+                            Gram
+                        </span>
+<div class="stat-icon">
+                            G
+                        </div>
+</div>
+<div
+                        class="stat-value"
+                        data-field="msp-gram"
+                    >
+                        —
+                    </div>
+<div class="stat-meta">
+                        Per quintal · Rabi
+                    </div>
+</article>
+<article
+                    class="card stat-card"
+                    data-crop="barley"
+                >
+<div class="stat-top">
+<span class="stat-label">
+                            Barley
+                        </span>
+<div class="stat-icon">
+                            B
+                        </div>
+</div>
+<div
+                        class="stat-value"
+                        data-field="msp-barley"
+                    >
+                        —
+                    </div>
+<div class="stat-meta">
+                        Per quintal · Rabi
+                    </div>
+</article>
+</div>
+<div
+                class="card"
+                style="margin-top:20px;"
+            >
+<div class="card-header">
+<div>
+<h3>
+                            Crop-wise MSP
+                        </h3>
+<p>
+                            Reference rates per quintal
+                        </p>
+</div>
+<div
+                        style="
+                            display:flex;
+                            gap:10px;
+                            align-items:center;
+                            flex-wrap:wrap;
+                        "
+                    >
+<input
+                            type="search"
+                            class="form-input"
+                            id="crop-search"
+                            placeholder="Search crop..."
+                            aria-label="Search crop"
+                            data-filter="crop-search"
+                            style="width:180px;"
+                        >
+</div>
+</div>
+<div class="card-body">
+<div style="overflow-x:auto;">
+<table
+                            id="msp-table"
+                            style="
+                                width:100%;
+                                border-collapse:collapse;
+                                font-size:var(--text-sm);
+                            "
+                        >
+<thead>
+<tr
+                                    style="
+                                        text-align:left;
+                                        color:var(--text-muted);
+                                        font-size:var(--text-xs);
+                                        border-bottom:1px solid var(--border-light);
+                                    "
+                                >
+<th
+                                        style="
+                                            padding:12px 10px;
+                                            font-weight:700;
+                                        "
+                                    >
+                                        Crop
+                                    </th>
+<th
+                                        style="
+                                            padding:12px 10px;
+                                            font-weight:700;
+                                        "
+                                    >
+                                        Season
+                                    </th>
+<th
+                                        style="
+                                            padding:12px 10px;
+                                            font-weight:700;
+                                        "
+                                    >
+                                        MSP / Quintal
+                                    </th>
+<th
+                                        style="
+                                            padding:12px 10px;
+                                            font-weight:700;
+                                        "
+                                    >
+                                        Unit
+                                    </th>
+<th
+                                        style="
+                                            padding:12px 10px;
+                                            font-weight:700;
+                                        "
+                                    >
+                                        Reference
+                                    </th>
+</tr>
+</thead>
+<tbody>
+<tr
+                                    data-crop="wheat"
+                                    data-season="rabi"
+                                    style="
+                                        border-bottom:1px solid var(--border-light);
+                                    "
+                                >
+<td style="padding:16px 10px;">
+<strong>
+                                            Wheat
+                                        </strong>
+<div
+                                            style="
+                                                color:var(--text-muted);
+                                                font-size:var(--text-xs);
+                                                margin-top:3px;
+                                            "
+                                        >
+                                            गेहूं
+                                        </div>
+</td>
+<td style="padding:16px 10px;">
+                                        Rabi
+                                    </td>
+<td
+                                        style="
+                                            padding:16px 10px;
+                                            font-weight:700;
+                                        "
+                                        data-field="rate"
+                                    >
+                                        —
+                                    </td>
+<td style="padding:16px 10px;">
+                                        Quintal
+                                    </td>
+<td style="padding:16px 10px;">
+<span class="status-badge info">
+                                            MSP
+</span>
+</td>
+</tr>
+<tr
+                                    data-crop="mustard"
+                                    data-season="rabi"
+                                    style="
+                                        border-bottom:1px solid var(--border-light);
+                                    "
+                                >
+<td style="padding:16px 10px;">
+<strong>
+                                            Mustard
+                                        </strong>
+<div
+                                            style="
+                                                color:var(--text-muted);
+                                                font-size:var(--text-xs);
+                                                margin-top:3px;
+                                            "
+                                        >
+                                            सरसों
+                                        </div>
+</td>
+<td style="padding:16px 10px;">
+                                        Rabi
+                                    </td>
+<td
+                                        style="
+                                            padding:16px 10px;
+                                            font-weight:700;
+                                        "
+                                        data-field="rate"
+                                    >
+                                        —
+                                    </td>
+<td style="padding:16px 10px;">
+                                        Quintal
+                                    </td>
+<td style="padding:16px 10px;">
+<span class="status-badge info">
+                                            MSP
+                                        </span>
+</td>
+</tr>
+<tr
+                                    data-crop="gram"
+                                    data-season="rabi"
+                                    style="
+                                        border-bottom:1px solid var(--border-light);
+                                    "
+                                >
+<td style="padding:16px 10px;">
+<strong>
+                                            Gram
+                                        </strong>
+<div
+                                            style="
+                                                color:var(--text-muted);
+                                                font-size:var(--text-xs);
+                                                margin-top:3px;
+                                            "
+                                        >
+                                            चना
+                                        </div>
+</td>
+<td style="padding:16px 10px;">
+                                        Rabi
+                                    </td>
+<td
+                                        style="
+                                            padding:16px 10px;
+                                            font-weight:700;
+                                        "
+                                        data-field="rate"
+                                    >
+                                        —
+                                    </td>
+<td style="padding:16px 10px;">
+                                        Quintal
+                                    </td>
+<td style="padding:16px 10px;">
+<span class="status-badge info">
+                                            MSP
+                                        </span>
+</td>
+</tr>
+<tr
+                                    data-crop="barley"
+                                    data-season="rabi"
+                                    style="
+                                        border-bottom:1px solid var(--border-light);
+                                    "
+                                >
+<td style="padding:16px 10px;">
+<strong>
+                                            Barley
+                                        </strong>
+<div
+                                            style="
+                                                color:var(--text-muted);
+                                                font-size:var(--text-xs);
+                                                margin-top:3px;
+                                            "
+                                        >
+                                            जौ
+                                        </div>
+</td>
+<td style="padding:16px 10px;">
+                                        Rabi
+                                    </td>
+<td
+                                        style="
+                                            padding:16px 10px;
+                                            font-weight:700;
+                                        "
+                                        data-field="rate"
+                                    >
+                                        —
+                                    </td>
+<td style="padding:16px 10px;">
+                                        Quintal
+                                    </td>
+<td style="padding:16px 10px;">
+<span class="status-badge info">
+                                            MSP
+                                        </span>
+</td>
+</tr>
+<tr
+                                    data-crop="paddy"
+                                    data-season="kharif"
+                                    style="
+                                        border-bottom:1px solid var(--border-light);
+                                    "
+                                >
+<td style="padding:16px 10px;">
+<strong>
+                                            Paddy
+                                        </strong>
+<div
+                                            style="
+                                                color:var(--text-muted);
+                                                font-size:var(--text-xs);
+                                                margin-top:3px;
+                                            "
+                                        >
+                                            धान
+                                        </div>
+</td>
+<td style="padding:16px 10px;">
+                                        Kharif
+                                    </td>
+<td
+                                        style="
+                                            padding:16px 10px;
+                                            font-weight:700;
+                                        "
+                                        data-field="rate"
+                                    >
+                                        —
+                                    </td>
+<td style="padding:16px 10px;">
+                                        Quintal
+                                    </td>
+<td style="padding:16px 10px;">
+<span class="status-badge info">
+                                            MSP
+                                        </span>
+</td>
+</tr>
+<tr
+                                    data-crop="maize"
+                                    data-season="kharif"
+                                    style="
+                                        border-bottom:0;
+                                    "
+                                >
+<td style="padding:16px 10px;">
+<strong>
+                                            Maize
+                                        </strong>
+<div
+                                            style="
+                                                color:var(--text-muted);
+                                                font-size:var(--text-xs);
+                                                margin-top:3px;
+                                            "
+                                        >
+                                            मक्का
+                                        </div>
+</td>
+<td style="padding:16px 10px;">
+                                        Kharif
+                                    </td>
+<td
+                                        style="
+                                            padding:16px 10px;
+                                            font-weight:700;
+                                        "
+                                        data-field="rate"
+                                    >
+                                        —
+                                    </td>
+<td style="padding:16px 10px;">
+                                        Quintal
+                                    </td>
+<td style="padding:16px 10px;">
+<span class="status-badge info">
+                                            MSP
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div
+                class="dashboard-grid"
+                style="margin-top:20px;"
+            >
+<div class="card">
+<div class="card-header">
+<div>
+<h3>
+                                What is MSP?
+                            </h3>
+<p>
+                                A simple explanation
+                            </p>
+</div>
+</div>
+<div class="card-body">
+<p
+                            style="
+                                color:var(--text-secondary);
+                                line-height:1.7;
+                                margin:0;
+                            "
+                        >
+                            Minimum Support Price (MSP) is a government
+                            announced reference price intended to provide
+                            farmers with price support for eligible crops.
+                            KissanSetu uses MSP information to help farmers
+                            understand the expected reference value of
+                            their produce before procurement.
+                        </p>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div>
+<h3>
+                                Before you sell
+                            </h3>
+<p>
+                                Keep these things in mind
+                            </p>
+</div>
+</div>
+<div class="card-body">
+<div class="activity-list">
+<div class="activity-item">
+<div class="activity-icon">
+                                    1
+                                </div>
+<div class="activity-content">
+<strong>
+                                        Check your crop
+                                    </strong>
+<p>
+                                        Make sure the crop and applicable
+                                        season match the listed rate.
+                                    </p>
+</div>
+</div>
+<div class="activity-item">
+<div class="activity-icon">
+                                    2
+                                </div>
+<div class="activity-content">
+<strong>
+                                        Check quantity
+                                    </strong>
+<p>
+                                        Procurement value depends on the
+                                        quantity accepted at the centre.
+                                    </p>
+</div>
+</div>
+<div class="activity-item">
+<div class="activity-icon">
+                                    3
+                                </div>
+<div class="activity-content">
+<strong>
+                                        Check quality requirements
+                                    </strong>
+<p>
+                                        Accepted produce may be subject
+                                        to applicable quality standards.
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div
+                class="card"
+                style="margin-top:20px;"
+            >
+<div class="card-body">
+<div
+                        style="
+                            display:flex;
+                            gap:16px;
+                            align-items:flex-start;
+                        "
+                    >
+<div
+                            class="stat-icon"
+                            style="flex-shrink:0;"
+                        >
+                            i
+                        </div>
+<div>
+<strong>
+                                Important
+                            </strong>
+<p
+                                style="
+                                    color:var(--text-muted);
+                                    line-height:1.6;
+                                    margin:5px 0 0;
+                                "
+                            >
+                                MSP figures displayed here are reference
+                                values for the application. Final
+                                procurement and payment records should
+                                always be based on the applicable government
+                                notification, procurement centre rules,
+                                accepted quantity and produce quality.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<script src="https://unpkg.com/lucide@latest"></script><script src="script.js"></script>
+</body>
+</html>

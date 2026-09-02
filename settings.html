@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KissanSetu | Account Settings</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body data-require-auth="true">
+<div class="dashboard-layout">
+<aside class="sidebar"><a href="dashboard.html" class="brand"><div class="brand-mark">KS</div><div><div class="brand-name">Kissan<span>Setu</span></div><span class="brand-subtitle">Farmer Portal</span></div></a><nav class="sidebar-nav"><div class="nav-section-title">Overview</div><a href="dashboard.html" class="sidebar-link"><span class="sidebar-icon"><i data-lucide="house"></i></span><span>Dashboard</span></a><a href="my-bookings.html" class="sidebar-link"><span class="sidebar-icon"><i data-lucide="clipboard-list"></i></span><span>My Bookings</span></a><div class="nav-section-title">Procurement</div><a href="book-slot.html" class="sidebar-link"><span class="sidebar-icon"><i data-lucide="plus"></i></span><span>Book a Slot</span></a><a href="live-queue.html" class="sidebar-link"><span class="sidebar-icon"><i data-lucide="clock-3"></i></span><span>Live Queue</span></a><a href="payments.html" class="sidebar-link"><span class="sidebar-icon"><i data-lucide="indian-rupee"></i></span><span>Payments</span></a><div class="nav-section-title">Information</div><a href="msp-rates.html" class="sidebar-link"><span class="sidebar-icon"><i data-lucide="table-2"></i></span><span>MSP Rates</span></a><a href="help.html" class="sidebar-link"><span class="sidebar-icon"><i data-lucide="circle-help"></i></span><span>Help &amp; Support</span></a></nav></aside>
+<main class="dashboard-main"><header class="topbar"><div><h1>Account settings</h1><p>Manage the profile details connected to your account.</p></div><a href="dashboard.html" class="btn btn-secondary btn-sm">Back to dashboard</a></header><div class="dashboard-content"><section class="card"><div class="card-header"><div><h2>Profile details</h2><p>These fields will be loaded and saved through the Flask API.</p></div></div><div class="card-body"><form data-api="/profile" data-api-method="PUT" novalidate><div class="form-row"><div class="form-group"><label class="form-label" for="name">Full name</label><input class="form-input" id="name" name="name" type="text" autocomplete="name" required></div><div class="form-group"><label class="form-label" for="mobile">Mobile number</label><input class="form-input" id="mobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required></div></div><div class="form-error" role="alert" hidden></div><button class="btn btn-primary" type="submit">Save changes</button></form></div></section></div></main>
+</div>
+<script src="https://unpkg.com/lucide@latest"></script><script src="script.js"></script>
+</body>
+</html>

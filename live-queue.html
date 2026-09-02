@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+<title>KissanSetu | Live Queue</title>
+<link
+        rel="stylesheet"
+        href="style.css"
+    >
+<link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+<link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+<link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+<body data-require-auth="true">
+<div class="dashboard-layout">
+<aside class="sidebar">
+<div class="brand">
+<div class="brand-mark">
+                KS
+            </div>
+<div>
+                <div class="brand-name">
+                    Kissan<span>Setu</span>
+                </div>
+<span class="brand-subtitle">
+                    Farmer Portal
+                </span>
+            </div>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-section-title">
+                Overview
+            </div>
+<a
+                href="dashboard.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="house"></i></span>
+                <span>Dashboard</span>
+            </a>
+<a
+                href="my-bookings.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="clipboard-list"></i></span>
+                <span>My Bookings</span>
+            </a>
+<div class="nav-section-title">
+                Procurement
+            </div>
+<a
+                href="book-slot.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="plus"></i></span>
+                <span>Book a Slot</span>
+            </a>
+<a
+                href="live-queue.html"
+                class="sidebar-link active"
+            >
+                <span class="sidebar-icon"><i data-lucide="clock-3"></i></span>
+                <span>Live Queue</span>
+            </a>
+<a
+                href="payments.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="indian-rupee"></i></span>
+                <span>Payments</span>
+            </a>
+<div class="nav-section-title">
+                Information
+            </div>
+<a
+                href="msp-rates.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="table-2"></i></span>
+                <span>MSP Rates</span>
+            </a>
+<a
+                href="help.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="circle-help"></i></span>
+                <span>Help & Support</span>
+            </a>
+</nav>
+    </aside>
+<main class="dashboard-main">
+<header class="topbar">
+<div class="topbar-left">
+<h1>
+                    Live Queue
+                </h1>
+<p>
+                    Real-time procurement centre status.
+                </p>
+</div>
+<div class="topbar-right">
+<button
+                    class="notification-btn"
+                    aria-label="Notifications"
+                >
+                    <i data-lucide="bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+<div class="user-menu">
+<div class="avatar">
+                        —
+                    </div>
+<div class="user-info">
+<strong>
+                            —
+                        </strong>
+<span>
+                            Farmer ID: —
+                        </span>
+</div>
+</div>
+</div>
+</header>
+<div class="dashboard-content">
+<section class="dashboard-welcome">
+<div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:flex-end;
+                        gap:20px;
+                        flex-wrap:wrap;
+                    "
+                >
+<div>
+<h2>
+                            Your place in the queue
+                        </h2>
+<p>
+                            Stay informed and arrive when the centre
+                            is ready for you.
+                        </p>
+</div>
+<span class="status-badge success">
+<span class="status-dot"></span>
+Live · Updated just now
+</span>
+</div>
+</section>
+<section
+                class="card"
+                style="
+                    overflow:hidden;
+                    margin-bottom:20px;
+                "
+            >
+<div
+                    style="
+                        padding:28px;
+                        background:
+                            radial-gradient(
+                                circle at 90% 20%,
+                                rgba(255,255,255,.10),
+                                transparent 30%
+                            ),
+                            linear-gradient(
+                                135deg,
+                                var(--brand-900),
+                                var(--brand-600)
+                            );
+                        color:white;
+                    "
+                >
+<div
+                        style="
+                            display:flex;
+                            justify-content:space-between;
+                            align-items:flex-start;
+                            gap:20px;
+                            flex-wrap:wrap;
+                        "
+                    >
+<div>
+<div
+                                style="
+                                    color:rgba(255,255,255,.65);
+                                    font-size:11px;
+                                    font-weight:700;
+                                    letter-spacing:.8px;
+                                    margin-bottom:8px;
+                                "
+                            >
+                                YOUR ACTIVE TOKEN
+                            </div>
+<div
+                                style="
+                                    font-size:3.5rem;
+                                    line-height:1;
+                                    font-weight:850;
+                                    letter-spacing:-2px;
+                                "
+                            >
+                                —
+                            </div>
+<div
+                                style="
+                                    margin-top:9px;
+                                    color:rgba(255,255,255,.72);
+                                    font-size:var(--text-sm);
+                                "
+                            >
+                                Wheat · —
+                            </div>
+</div>
+<div
+                            style="
+                                padding:12px 16px;
+                                border:1px solid rgba(255,255,255,.14);
+                                background:rgba(255,255,255,.08);
+                                border-radius:var(--radius-md);
+                                min-width:180px;
+                            "
+                        >
+<div
+                                style="
+                                    color:rgba(255,255,255,.6);
+                                    font-size:10px;
+                                    font-weight:700;
+                                "
+                            >
+                                CURRENTLY SERVING
+                            </div>
+<strong
+                                style="
+                                    display:block;
+                                    font-size:1.5rem;
+                                    margin-top:2px;
+                                "
+                            >
+                                —
+                            </strong>
+<span
+                                style="
+                                    color:rgba(255,255,255,.65);
+                                    font-size:11px;
+                                "
+                            >
+                                Processing now
+                            </span>
+</div>
+</div>
+<div
+                        style="
+                            margin-top:30px;
+                        "
+                    >
+<div
+                            style="
+                                display:flex;
+                                justify-content:space-between;
+                                margin-bottom:9px;
+                                font-size:var(--text-sm);
+                            "
+                        >
+<span>
+                                Queue progress
+                            </span>
+<strong>
+                                —
+                            </strong>
+</div>
+<div
+                            style="
+                                height:9px;
+                                border-radius:999px;
+                                background:rgba(255,255,255,.15);
+                                overflow:hidden;
+                            "
+                        >
+<div
+                                style="
+                                    width:72%;
+                                    height:100%;
+                                    border-radius:inherit;
+                                    background:white;
+                                "
+                            ></div>
+</div>
+</div>
+</div>
+<div
+                    style="
+                        display:grid;
+                        grid-template-columns:repeat(4,1fr);
+                        background:var(--border-light);
+                        gap:1px;
+                    "
+                >
+<div
+                        style="
+                            padding:20px;
+                            background:white;
+                        "
+                    >
+<span class="stat-label">
+                            Position
+                        </span>
+<strong
+                            style="
+                                display:block;
+                                font-size:var(--text-xl);
+                                margin-top:5px;
+                            "
+                        >
+                            #—
+                        </strong>
+<span
+                            style="
+                                color:var(--text-muted);
+                                font-size:var(--text-xs);
+                            "
+                        >
+                            in queue
+                        </span>
+</div>
+<div
+                        style="
+                            padding:20px;
+                            background:white;
+                        "
+                    >
+<span class="stat-label">
+                            Estimated wait
+                        </span>
+<strong
+                            style="
+                                display:block;
+                                font-size:var(--text-xl);
+                                margin-top:5px;
+                            "
+                        >
+                            —
+                        </strong>
+<span
+                            style="
+                                color:var(--text-muted);
+                                font-size:var(--text-xs);
+                            "
+                        >
+                            based on live flow
+                        </span>
+</div>
+<div
+                        style="
+                            padding:20px;
+                            background:white;
+                        "
+                    >
+<span class="stat-label">
+                            Estimated turn
+                        </span>
+<strong
+                            style="
+                                display:block;
+                                font-size:var(--text-xl);
+                                margin-top:5px;
+                            "
+                        >
+                            11:48 AM
+                        </strong>
+<span
+                            style="
+                                color:var(--text-muted);
+                                font-size:var(--text-xs);
+                            "
+                        >
+                            approximate
+                        </span>
+</div>
+<div
+                        style="
+                            padding:20px;
+                            background:white;
+                        "
+                    >
+<span class="stat-label">
+                            Centre status
+                        </span>
+<strong
+                            style="
+                                display:block;
+                                color:var(--brand-600);
+                                font-size:var(--text-xl);
+                                margin-top:5px;
+                            "
+                        >
+                            Normal
+                        </strong>
+<span
+                            style="
+                                color:var(--text-muted);
+                                font-size:var(--text-xs);
+                            "
+                        >
+                            processing smoothly
+                        </span>
+</div>
+</div>
+</section>
+<section
+                class="card"
+                style="
+                    margin-bottom:20px;
+                    background:var(--brand-50);
+                    border-color:var(--brand-100);
+                "
+            >
+<div
+                    class="card-body"
+                    style="
+                        display:flex;
+                        align-items:center;
+                        justify-content:space-between;
+                        gap:20px;
+                        flex-wrap:wrap;
+                    "
+                >
+<div
+                        style="
+                            display:flex;
+                            gap:14px;
+                            align-items:flex-start;
+                        "
+                    >
+<div
+                            style="
+                                width:42px;
+                                height:42px;
+                                flex:0 0 42px;
+                                display:grid;
+                                place-items:center;
+                                border-radius:12px;
+                                background:white;
+                                color:var(--brand-600);
+                                font-weight:800;
+                            "
+                        >
+                            ✓
+                        </div>
+<div>
+<strong
+                                style="
+                                    display:block;
+                                    color:var(--brand-800);
+                                "
+                            >
+                                You don't need to wait at the centre yet.
+                            </strong>
+<p
+                                style="
+                                    color:var(--text-secondary);
+                                    font-size:var(--text-sm);
+                                    margin-top:3px;
+                                "
+                            >
+                                Based on the current queue, we recommend
+                                reaching the centre around
+                                <strong>11:35 AM</strong>.
+                            </p>
+</div>
+</div>
+<span
+                        style="
+                            color:var(--brand-700);
+                            font-size:var(--text-xs);
+                            font-weight:700;
+                        "
+                    >
+                        ETA updates automatically
+                    </span>
+</div>
+</section>
+<section
+                style="
+                    display:grid;
+                    grid-template-columns:1.25fr .75fr;
+                    gap:20px;
+                "
+            >
+<article class="card">
+<div class="card-header">
+<div>
+<h3>
+                                Queue movement
+                            </h3>
+<p>
+                                Live tokens
+                            </p>
+</div>
+<span
+                            style="
+                                color:var(--text-muted);
+                                font-size:var(--text-xs);
+                            "
+                        >
+                            Auto-refreshing
+                        </span>
+</div>
+<div class="card-body">
+<div
+                            style="
+                                display:flex;
+                                gap:15px;
+                                position:relative;
+                                padding-bottom:24px;
+                            "
+                        >
+<div
+                                style="
+                                    width:36px;
+                                    height:36px;
+                                    flex:0 0 36px;
+                                    border-radius:50%;
+                                    display:grid;
+                                    place-items:center;
+                                    background:var(--brand-600);
+                                    color:white;
+                                    font-size:11px;
+                                    font-weight:800;
+                                    z-index:2;
+                                "
+                            >
+                                —
+                            </div>
+<div>
+<strong
+                                    style="
+                                        display:block;
+                                        font-size:var(--text-sm);
+                                    "
+                                >
+                                    Currently being served
+                                </strong>
+<p
+                                    style="
+                                        color:var(--text-muted);
+                                        font-size:var(--text-xs);
+                                        margin-top:3px;
+                                    "
+                                >
+                                    Weighment in progress
+                                </p>
+</div>
+<span
+                                class="status-badge success"
+                                style="margin-left:auto;"
+                            >
+                                Processing
+                            </span>
+</div>
+<div
+                            style="
+                                display:flex;
+                                gap:15px;
+                                position:relative;
+                                padding-bottom:24px;
+                            "
+                        >
+<div
+                                style="
+                                    position:absolute;
+                                    left:17px;
+                                    top:-24px;
+                                    bottom:0;
+                                    width:2px;
+                                    background:var(--border-light);
+                                "
+                            ></div>
+<div
+                                style="
+                                    width:36px;
+                                    height:36px;
+                                    flex:0 0 36px;
+                                    border-radius:50%;
+                                    display:grid;
+                                    place-items:center;
+                                    background:var(--bg-tertiary);
+                                    color:var(--text-secondary);
+                                    font-size:11px;
+                                    font-weight:800;
+                                    z-index:2;
+                                "
+                            >
+                                —
+                            </div>
+<div>
+<strong
+                                    style="
+                                        display:block;
+                                        font-size:var(--text-sm);
+                                    "
+                                >
+                                    Next
+                                </strong>
+<p
+                                    style="
+                                        color:var(--text-muted);
+                                        font-size:var(--text-xs);
+                                        margin-top:3px;
+                                    "
+                                >
+                                    Estimated in 5 minutes
+                                </p>
+</div>
+</div>
+<div
+                            style="
+                                display:flex;
+                                gap:15px;
+                                position:relative;
+                                padding:15px;
+                                margin:0 -15px;
+                                border-radius:var(--radius-md);
+                                background:var(--brand-50);
+                            "
+                        >
+<div
+                                style="
+                                    width:36px;
+                                    height:36px;
+                                    flex:0 0 36px;
+                                    border-radius:50%;
+                                    display:grid;
+                                    place-items:center;
+                                    background:var(--brand-600);
+                                    color:white;
+                                    font-size:10px;
+                                    font-weight:800;
+                                    z-index:2;
+                                "
+                            >
+                                YOU
+                            </div>
+<div>
+<strong
+                                    style="
+                                        display:block;
+                                        color:var(--brand-800);
+                                        font-size:var(--text-sm);
+                                    "
+                                >
+                                    — · Your token
+                                </strong>
+<p
+                                    style="
+                                        color:var(--text-secondary);
+                                        font-size:var(--text-xs);
+                                        margin-top:3px;
+                                    "
+                                >
+                                    — of you
+                                </p>
+</div>
+<span
+                                class="status-badge info"
+                                style="margin-left:auto;"
+                            >
+                                Waiting
+                            </span>
+</div>
+<div
+                            style="
+                                display:flex;
+                                align-items:center;
+                                gap:10px;
+                                margin-top:18px;
+                                color:var(--text-muted);
+                                font-size:var(--text-xs);
+                            "
+                        >
+<span
+                                style="
+                                    width:36px;
+                                    text-align:center;
+                                    font-weight:700;
+                                "
+                            >
+                                +6
+                            </span>
+<span>
+                                more tokens after yours
+                            </span>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-header">
+<div>
+<h3>
+                                Centre status
+                            </h3>
+<p>
+                                —
+                            </p>
+</div>
+<span class="status-badge success">
+<span class="status-dot"></span>
+Open
+</span>
+</div>
+<div class="card-body">
+<div
+                            style="
+                                display:flex;
+                                align-items:center;
+                                justify-content:space-between;
+                                margin-bottom:18px;
+                            "
+                        >
+<div>
+<span class="stat-label">
+                                    Current workload
+                                </span>
+<strong
+                                    style="
+                                        display:block;
+                                        font-size:var(--text-2xl);
+                                        margin-top:3px;
+                                    "
+                                >
+                                    68%
+                                </strong>
+</div>
+<div
+                                style="
+                                    width:74px;
+                                    height:74px;
+                                    border-radius:50%;
+                                    display:grid;
+                                    place-items:center;
+                                    background:
+                                        conic-gradient(
+                                            var(--brand-600) 68%,
+                                            var(--brand-100) 0
+                                        );
+                                    position:relative;
+                                "
+                            >
+<div
+                                    style="
+                                        width:58px;
+                                        height:58px;
+                                        display:grid;
+                                        place-items:center;
+                                        border-radius:50%;
+                                        background:white;
+                                        font-size:12px;
+                                        font-weight:800;
+                                    "
+                                >
+                                    68%
+                                </div>
+</div>
+</div>
+<div
+                            style="
+                                display:grid;
+                                gap:12px;
+                            "
+                        >
+<div
+                                style="
+                                    display:flex;
+                                    justify-content:space-between;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+<span class="stat-label">
+                                    Farmers waiting
+                                </span>
+<strong>
+                                    13
+                                </strong>
+</div>
+<div
+                                style="
+                                    display:flex;
+                                    justify-content:space-between;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+<span class="stat-label">
+                                    Processing now
+                                </span>
+<strong>
+                                    2
+                                </strong>
+</div>
+<div
+                                style="
+                                    display:flex;
+                                    justify-content:space-between;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+<span class="stat-label">
+                                    Avg. processing time
+                                </span>
+<strong>
+                                    6 min
+                                </strong>
+</div>
+<div
+                                style="
+                                    display:flex;
+                                    justify-content:space-between;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+<span class="stat-label">
+                                    Expected today
+                                </span>
+<strong>
+                                    47
+                                </strong>
+</div>
+</div>
+<div
+                            style="
+                                height:1px;
+                                background:var(--border-light);
+                                margin:20px 0;
+                            "
+                        ></div>
+<div>
+<span
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:10px;
+                                    font-weight:700;
+                                    text-transform:uppercase;
+                                    letter-spacing:.6px;
+                                "
+                            >
+                                Last update
+                            </span>
+<p
+                                style="
+                                    color:var(--text-secondary);
+                                    font-size:var(--text-xs);
+                                    margin-top:4px;
+                                "
+                            >
+                                Queue recalculated 18 seconds ago.
+                            </p>
+</div>
+</div>
+</article>
+</section>
+<section
+                class="card"
+                style="margin-top:20px;"
+            >
+<div class="card-body">
+<div
+                        style="
+                            display:grid;
+                            grid-template-columns:repeat(3,1fr);
+                            gap:24px;
+                        "
+                    >
+<div>
+<div class="stat-icon">
+                                01
+                            </div>
+<strong
+                                style="
+                                    display:block;
+                                    margin-top:12px;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+                                Keep your token ready
+                            </strong>
+<p
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:var(--text-xs);
+                                    margin-top:4px;
+                                "
+                            >
+                                Your token will be used to identify
+                                your position at the centre.
+                            </p>
+</div>
+<div>
+<div class="stat-icon">
+                                02
+                            </div>
+<strong
+                                style="
+                                    display:block;
+                                    margin-top:12px;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+                                Watch for notifications
+                            </strong>
+<p
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:var(--text-xs);
+                                    margin-top:4px;
+                                "
+                            >
+                                Queue changes and important updates
+                                will appear in your notifications.
+                            </p>
+</div>
+<div>
+<div class="stat-icon">
+                                03
+                            </div>
+<strong
+                                style="
+                                    display:block;
+                                    margin-top:12px;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+                                Follow the estimated arrival
+                            </strong>
+<p
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:var(--text-xs);
+                                    margin-top:4px;
+                                "
+                            >
+                                ETA is continuously adjusted using
+                                the current queue flow.
+                            </p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<script src="https://unpkg.com/lucide@latest"></script><script src="script.js"></script>
+</body>
+</html>

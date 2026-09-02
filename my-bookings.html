@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+<title>KissanSetu | My Bookings</title>
+<link
+        rel="stylesheet"
+        href="style.css"
+    >
+<link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+<link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+<link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+<body data-require-auth="true">
+<div class="dashboard-layout">
+<aside class="sidebar">
+<div class="brand">
+<div class="brand-mark">
+                KS
+            </div>
+<div>
+                <div class="brand-name">
+                    Kissan<span>Setu</span>
+                </div>
+<span class="brand-subtitle">
+                    Farmer Portal
+                </span>
+            </div>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-section-title">
+                Overview
+            </div>
+<a
+                href="dashboard.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="house"></i></span>
+                <span>Dashboard</span>
+            </a>
+<a
+                href="my-bookings.html"
+                class="sidebar-link active"
+            >
+                <span class="sidebar-icon"><i data-lucide="clipboard-list"></i></span>
+                <span>My Bookings</span>
+            </a>
+<div class="nav-section-title">
+                Procurement
+            </div>
+<a
+                href="book-slot.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="plus"></i></span>
+                <span>Book a Slot</span>
+            </a>
+<a
+                href="live-queue.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="clock-3"></i></span>
+                <span>Live Queue</span>
+            </a>
+<a
+                href="payments.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="indian-rupee"></i></span>
+                <span>Payments</span>
+            </a>
+<div class="nav-section-title">
+                Information
+            </div>
+<a
+                href="msp-rates.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="table-2"></i></span>
+                <span>MSP Rates</span>
+            </a>
+<a
+                href="help.html"
+                class="sidebar-link"
+            >
+                <span class="sidebar-icon"><i data-lucide="circle-help"></i></span>
+                <span>Help & Support</span>
+            </a>
+</nav>
+    </aside>
+<main class="dashboard-main">
+<header class="topbar">
+<div class="topbar-left">
+<h1>
+                    My Bookings
+                </h1>
+<p>
+                    View and manage your procurement visits.
+                </p>
+</div>
+<div class="topbar-right">
+<button
+                    class="notification-btn"
+                    aria-label="Notifications"
+                >
+                    <i data-lucide="bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+<div class="user-menu">
+<div class="avatar">
+                        —
+                    </div>
+<div class="user-info">
+<strong>
+                            —
+                        </strong>
+<span>
+                            Farmer ID: —
+                        </span>
+</div>
+</div>
+</div>
+</header>
+<div class="dashboard-content">
+<section class="dashboard-welcome">
+<h2>
+                    Your procurement bookings
+                </h2>
+<p>
+                    Keep track of upcoming visits and your
+                    previous procurement activity.
+                </p>
+</section>
+<section
+                style="
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    gap:16px;
+                    margin-bottom:20px;
+                    flex-wrap:wrap;
+                "
+            >
+<div
+                    style="
+                        display:flex;
+                        gap:6px;
+                        padding:4px;
+                        background:var(--bg-tertiary);
+                        border-radius:var(--radius-md);
+                    "
+                >
+<button
+                        class="auth-tab active"
+                        type="button"
+                        style="padding:9px 15px;"
+                    >
+                        Upcoming
+                    </button>
+<button
+                        class="auth-tab"
+                        type="button"
+                        style="padding:9px 15px;"
+                    >
+                        Past
+                    </button>
+</div>
+<a
+                    href="book-slot.html"
+                    class="btn btn-primary"
+                    style="
+                        width:auto;
+                        min-height:42px;
+                    "
+                >
+                    + Book new slot
+                </a>
+</section>
+<section
+                class="card"
+                style="
+                    overflow:hidden;
+                    margin-bottom:24px;
+                "
+            >
+<div
+                    style="
+                        padding:20px 22px;
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:flex-start;
+                        gap:20px;
+                        border-bottom:1px solid var(--border-light);
+                    "
+                >
+<div>
+<div
+                            style="
+                                display:flex;
+                                align-items:center;
+                                gap:9px;
+                                margin-bottom:7px;
+                            "
+                        >
+<span class="status-badge success">
+<span class="status-dot"></span>
+Confirmed
+</span>
+<span
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:var(--text-xs);
+                                "
+                            >
+                                Booking #—
+                            </span>
+</div>
+<h3
+                            style="
+                                font-size:var(--text-xl);
+                                letter-spacing:-0.5px;
+                            "
+                        >
+                            —
+                        </h3>
+<p
+                            style="
+                                color:var(--text-secondary);
+                                font-size:var(--text-sm);
+                                margin-top:4px;
+                            "
+                        >
+                            — – 12:00 PM
+                        </p>
+</div>
+<button
+                        class="btn btn-secondary btn-sm"
+                        type="button"
+                    >
+                        Manage booking
+                    </button>
+</div>
+<div
+                    style="
+                        display:grid;
+                        grid-template-columns:repeat(4, 1fr);
+                        gap:1px;
+                        background:var(--border-light);
+                    "
+                >
+<div
+                        style="
+                            background:white;
+                            padding:20px;
+                        "
+                    >
+<span class="stat-label">
+                            Procurement centre
+                        </span>
+<strong
+                            style="
+                                display:block;
+                                margin-top:7px;
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            —
+                        </strong>
+</div>
+<div
+                        style="
+                            background:white;
+                            padding:20px;
+                        "
+                    >
+<span class="stat-label">
+                            Produce
+                        </span>
+<strong
+                            style="
+                                display:block;
+                                margin-top:7px;
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            Wheat
+                        </strong>
+</div>
+<div
+                        style="
+                            background:white;
+                            padding:20px;
+                        "
+                    >
+<span class="stat-label">
+                            Quantity
+                        </span>
+<strong
+                            style="
+                                display:block;
+                                margin-top:7px;
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            —
+                        </strong>
+</div>
+<div
+                        style="
+                            background:white;
+                            padding:20px;
+                        "
+                    >
+<span class="stat-label">
+                            Token
+                        </span>
+<strong
+                            style="
+                                display:block;
+                                margin-top:7px;
+                                color:var(--brand-700);
+                                font-size:var(--text-lg);
+                            "
+                        >
+                            —
+                        </strong>
+</div>
+</div>
+<div
+                    style="
+                        padding:20px 22px;
+                        background:var(--brand-50);
+                        display:flex;
+                        align-items:center;
+                        justify-content:space-between;
+                        gap:20px;
+                        flex-wrap:wrap;
+                    "
+                >
+<div>
+<span
+                            style="
+                                color:var(--brand-700);
+                                font-size:var(--text-xs);
+                                font-weight:700;
+                            "
+                        >
+                            LIVE PROCUREMENT STATUS
+                        </span>
+<div
+                            style="
+                                display:flex;
+                                align-items:baseline;
+                                gap:8px;
+                                margin-top:3px;
+                            "
+                        >
+<strong
+                                style="
+                                    font-size:var(--text-lg);
+                                "
+                            >
+                                —
+                            </strong>
+<span
+                                style="
+                                    color:var(--text-secondary);
+                                    font-size:var(--text-sm);
+                                "
+                            >
+                                · approx. — wait
+                            </span>
+</div>
+</div>
+<a
+                        href="#"
+                        class="text-link"
+                    >
+                        View live queue →
+                    </a>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>
+                            Booking history
+                        </h3>
+<p>
+                            Your completed and previous bookings
+                        </p>
+</div>
+<button
+                        class="btn btn-secondary btn-sm"
+                        type="button"
+                    >
+                        Filter
+                    </button>
+</div>
+<div class="card-body">
+<div
+                        style="
+                            display:grid;
+                            grid-template-columns:
+                                1.4fr
+                                1.1fr
+                                1fr
+                                0.8fr
+                                0.8fr;
+                            gap:16px;
+                            padding:0 0 11px;
+                            color:var(--text-muted);
+                            font-size:10px;
+                            font-weight:750;
+                            text-transform:uppercase;
+                            letter-spacing:.6px;
+                            border-bottom:1px solid var(--border-light);
+                        "
+                    >
+<span>
+                            Booking
+                        </span>
+<span>
+                            Centre
+                        </span>
+<span>
+                            Date
+                        </span>
+<span>
+                            Status
+                        </span>
+<span>
+                            Amount
+                        </span>
+</div>
+<div
+                        style="
+                            display:grid;
+                            grid-template-columns:
+                                1.4fr
+                                1.1fr
+                                1fr
+                                0.8fr
+                                0.8fr;
+                            gap:16px;
+                            align-items:center;
+                            padding:17px 0;
+                            border-bottom:1px solid var(--border-light);
+                        "
+                    >
+<div>
+<strong
+                                style="
+                                    display:block;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+                                Wheat
+                            </strong>
+<span
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:var(--text-xs);
+                                "
+                            >
+                                —
+                            </span>
+</div>
+<span
+                            style="font-size:var(--text-sm);"
+                        >
+                            —
+                        </span>
+<span
+                            style="
+                                color:var(--text-secondary);
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            —
+                        </span>
+<span class="status-badge success">
+                            Completed
+                        </span>
+<strong
+                            style="
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            —
+                        </strong>
+</div>
+<div
+                        style="
+                            display:grid;
+                            grid-template-columns:
+                                1.4fr
+                                1.1fr
+                                1fr
+                                0.8fr
+                                0.8fr;
+                            gap:16px;
+                            align-items:center;
+                            padding:17px 0;
+                            border-bottom:1px solid var(--border-light);
+                        "
+                    >
+<div>
+<strong
+                                style="
+                                    display:block;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+                                Mustard
+                            </strong>
+<span
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:var(--text-xs);
+                                "
+                            >
+                                —
+                            </span>
+</div>
+<span
+                            style="font-size:var(--text-sm);"
+                        >
+                            —
+                        </span>
+<span
+                            style="
+                                color:var(--text-secondary);
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            26 Jul 2026
+                        </span>
+<span class="status-badge success">
+                            Completed
+                        </span>
+<strong
+                            style="
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            —
+                        </strong>
+</div>
+<div
+                        style="
+                            display:grid;
+                            grid-template-columns:
+                                1.4fr
+                                1.1fr
+                                1fr
+                                0.8fr
+                                0.8fr;
+                            gap:16px;
+                            align-items:center;
+                            padding:17px 0;
+                            border-bottom:1px solid var(--border-light);
+                        "
+                    >
+<div>
+<strong
+                                style="
+                                    display:block;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+                                Wheat
+                            </strong>
+<span
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:var(--text-xs);
+                                "
+                            >
+                                —
+                            </span>
+</div>
+<span
+                            style="font-size:var(--text-sm);"
+                        >
+                            —
+                        </span>
+<span
+                            style="
+                                color:var(--text-secondary);
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            12 Jun 2026
+                        </span>
+<span class="status-badge success">
+                            Completed
+                        </span>
+<strong
+                            style="
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            —
+                        </strong>
+</div>
+<div
+                        style="
+                            display:grid;
+                            grid-template-columns:
+                                1.4fr
+                                1.1fr
+                                1fr
+                                0.8fr
+                                0.8fr;
+                            gap:16px;
+                            align-items:center;
+                            padding:17px 0;
+                        "
+                    >
+<div>
+<strong
+                                style="
+                                    display:block;
+                                    font-size:var(--text-sm);
+                                "
+                            >
+                                Mustard
+                            </strong>
+<span
+                                style="
+                                    color:var(--text-muted);
+                                    font-size:var(--text-xs);
+                                "
+                            >
+                                —
+                            </span>
+</div>
+<span
+                            style="font-size:var(--text-sm);"
+                        >
+                            —
+                        </span>
+<span
+                            style="
+                                color:var(--text-secondary);
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            21 May 2026
+                        </span>
+<span class="status-badge success">
+                            Completed
+                        </span>
+<strong
+                            style="
+                                font-size:var(--text-sm);
+                            "
+                        >
+                            —
+                        </strong>
+</div>
+</div>
+<div
+                    style="
+                        padding:16px 22px;
+                        border-top:1px solid var(--border-light);
+                        display:flex;
+                        align-items:center;
+                        justify-content:space-between;
+                    "
+                >
+<span
+                        style="
+                            color:var(--text-muted);
+                            font-size:var(--text-xs);
+                        "
+                    >
+                        Showing 4 of 12 bookings
+                    </span>
+<div
+                        style="
+                            display:flex;
+                            gap:6px;
+                        "
+                    >
+<button
+                            class="btn btn-secondary btn-sm"
+                            disabled
+                        >
+                            ←
+                        </button>
+<button
+                            class="btn btn-secondary btn-sm"
+                        >
+                            1
+                        </button>
+<button
+                            class="btn btn-secondary btn-sm"
+                        >
+                            2
+                        </button>
+<button
+                            class="btn btn-secondary btn-sm"
+                        >
+                            3
+                        </button>
+<button
+                            class="btn btn-secondary btn-sm"
+                        >
+                            →
+                        </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<script src="https://unpkg.com/lucide@latest"></script><script src="script.js"></script>
+</body>
+</html>

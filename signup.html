@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KissanSetu | Create Farmer Account</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<main class="auth-page">
+<section class="auth-brand-panel"><div class="brand"><div class="brand-mark">KS</div><div><div class="brand-name">Kissan<span>Setu</span></div><span class="brand-subtitle">Smart Farmer Procurement</span></div></div><div class="auth-brand-content"><div class="auth-eyebrow">FARMER ACCOUNT REGISTRATION</div><h1>Start with a clearer mandi journey.</h1><p>Create your farmer account to book procurement slots, follow queue updates, and track payments from one place.</p><div class="auth-features"><div class="auth-feature"><div class="auth-feature-icon">01</div><div><strong>One account</strong><span>Use one profile across your procurement journey.</span></div></div><div class="auth-feature"><div class="auth-feature-icon">02</div><div><strong>Clear records</strong><span>Keep booking and payment information connected.</span></div></div></div></div><div class="auth-brand-footer">Secure · Transparent · Farmer-first</div></section>
+<section class="auth-form-panel"><div class="auth-container"><div class="auth-mobile-brand"><div class="brand"><div class="brand-mark">KS</div><div><div class="brand-name">Kissan<span>Setu</span></div><span class="brand-subtitle">Smart Farmer Procurement</span></div></div></div><div class="auth-tabs"><a class="auth-tab" href="auth.html">Login</a><a class="auth-tab active" href="signup.html">Sign Up</a></div><div class="auth-form-header"><span class="auth-eyebrow">NEW FARMER ACCOUNT</span><h2>Create your account</h2><p>Enter your details to receive a verification code.</p></div><form data-api="/auth/register" data-redirect="dashboard.html" novalidate><div class="form-group"><label class="form-label" for="name">Full name</label><input class="form-input" id="name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" minlength="2" required></div><div class="form-group"><label class="form-label" for="email">Email address</label><input class="form-input" id="email" name="email" type="email" autocomplete="email" placeholder="Email for verification code" required></div><div class="form-group"><label class="form-label" for="mobile">Mobile number</label><div class="input-wrapper"><span class="input-icon">+91</span><input class="form-input" id="mobile" name="mobile" type="tel" inputmode="numeric" placeholder="10-digit mobile number" maxlength="10" pattern="[0-9]{10}" required></div></div><div class="form-group"><label class="form-label" for="password">Create password</label><input class="form-input" id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required></div><div class="form-group"><label class="form-label" for="confirm-password">Confirm password</label><input class="form-input" id="confirm-password" name="confirm_password" type="password" autocomplete="new-password" placeholder="Re-enter your password" minlength="8" required></div><div class="form-error" role="alert" hidden></div><button class="btn btn-primary" type="submit">Create farmer account</button></form><p class="auth-switch-copy">Already registered? <a class="text-link" href="auth.html">Sign in</a></p><div class="security-note"><div>✓</div><div><strong>Email verification required</strong>Your account becomes active only after the six-digit code is verified.</div></div></div></section>
+</main>
+<script src="https://unpkg.com/lucide@latest"></script><script src="script.js"></script>
+</body>
+</html>
