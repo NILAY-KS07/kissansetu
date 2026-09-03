@@ -13,3 +13,4 @@ def register_error_handlers(app):
     @app.errorhandler(500)
     def server_error(error):
         return jsonify({"error": "server_error", "message": "An unexpected error occurred."}), 500
+

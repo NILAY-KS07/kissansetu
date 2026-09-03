@@ -166,6 +166,7 @@
                 >
 <button
                         class="auth-tab active"
+                        id="upcoming-bookings-tab"
                         type="button"
                         style="padding:9px 15px;"
                     >
@@ -173,6 +174,7 @@
                     </button>
 <button
                         class="auth-tab"
+                        id="past-bookings-tab"
                         type="button"
                         style="padding:9px 15px;"
                     >
@@ -191,8 +193,10 @@
                 </a>
 </section>
 <section
-                class="card"
+                id="booking-primary-card"
+                class="card booking-card"
                 style="
+                    display:none;
                     overflow:hidden;
                     margin-bottom:24px;
                 "
@@ -207,15 +211,14 @@
                         border-bottom:1px solid var(--border-light);
                     "
                 >
-<div>
 <div
-                            style="
-                                display:flex;
-                                align-items:center;
-                                gap:9px;
-                                margin-bottom:7px;
-                            "
-                        >
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:9px;
+                        margin-bottom:7px;
+                    "
+                >
 <span class="status-badge success">
 <span class="status-dot"></span>
 Confirmed
@@ -247,12 +250,6 @@ Confirmed
                             — – 12:00 PM
                         </p>
 </div>
-<button
-                        class="btn btn-secondary btn-sm"
-                        type="button"
-                    >
-                        Manage booking
-                    </button>
 </div>
 <div
                     style="
@@ -387,14 +384,14 @@ Confirmed
 </div>
 </div>
 <a
-                        href="#"
+                        href="live-queue.html"
                         class="text-link"
                     >
                         View live queue →
                     </a>
 </div>
 </section>
-<section class="card">
+<section id="booking-history-section" class="card">
 <div class="card-header">
 <div>
 <h3>
@@ -404,14 +401,8 @@ Confirmed
                             Your completed and previous bookings
                         </p>
 </div>
-<button
-                        class="btn btn-secondary btn-sm"
-                        type="button"
-                    >
-                        Filter
-                    </button>
 </div>
-<div class="card-body">
+<div class="card-body" id="booking-history-body" style="display:none;">
 <div
                         style="
                             display:grid;

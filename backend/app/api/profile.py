@@ -10,9 +10,16 @@ profile_bp = Blueprint("profile", __name__)
 @require_auth
 def get_profile():
     user = current_app.extensions["user_repository"].find_by_id(g.user_id)
+
     if not user:
-        return jsonify({"error": "not_found", "message": "Profile not found."}), 404
-    return jsonify({"user": user.public_data()})
+        return jsonify({
+            "error": "not_found",
+            "message": "Profile not found.",
+        }), 404
+
+    return jsonify({
+        "user": user.public_data(),
+    })
 
 
 @profile_bp.put("/profile")
@@ -20,11 +27,24 @@ def get_profile():
 def update_profile():
     payload = request.get_json(silent=True) or {}
     name = str(payload.get("name", "")).strip()
+
     if len(name) < 2:
-        return jsonify({"error": "validation_error", "message": "Name must contain at least 2 characters."}), 400
+        return jsonify({
+            "error": "validation_error",
+            "message": "Name must contain at least 2 characters.",
+        }), 400
+
     user = current_app.extensions["user_repository"].find_by_id(g.user_id)
+
     if not user:
-        return jsonify({"error": "not_found", "message": "Profile not found."}), 404
+        return jsonify({
+            "error": "not_found",
+            "message": "Profile not found.",
+        }), 404
+
     current_app.extensions["user_repository"].update_name(g.user_id, name)
     user.name = name
-    return jsonify({"user": user.public_data()})
+
+    return jsonify({
+        "user": user.public_data(),
+    })

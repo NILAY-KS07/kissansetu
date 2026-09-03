@@ -127,21 +127,19 @@
 <h1>
                         Farmer Dashboard
                     </h1>
-<p>
+<p id="dashboard-subtitle">
                         —
                     </p>
 </div>
 </div>
 <div class="topbar-right">
-<a
-                    href="help.html"
+<button
                     class="notification-btn"
-                    aria-label="Notifications and alerts"
-                    title="Notifications"
+                    aria-label="Notifications"
                 >
-<i data-lucide="bell"></i>
-<span class="notification-dot"></span>
-</a>
+                    <i data-lucide="bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
 <a
                     href="settings.html"
                     class="user-menu"
@@ -163,7 +161,7 @@
 </header>
 <div class="dashboard-content">
 <section class="dashboard-welcome">
-<h2>
+<h2 id="dashboard-greeting">
                     Good morning, —
                 </h2>
 <p>
@@ -183,10 +181,10 @@
                         </span>
 <div class="stat-icon"><i data-lucide="clipboard-list"></i></div>
 </div>
-<div class="stat-value">
+<div class="stat-value" id="dashboard-active-count">
                         #—
                     </div>
-<div class="stat-meta">
+<div class="stat-meta" id="dashboard-active-meta">
                         —
                     </div>
 </a>
@@ -201,10 +199,10 @@
                         </span>
 <div class="stat-icon"><i data-lucide="clock-3"></i></div>
 </div>
-<div class="stat-value">
+<div class="stat-value" id="dashboard-queue-position">
                         #—
                     </div>
-<div class="stat-meta">
+<div class="stat-meta" id="dashboard-queue-meta">
                         —
                     </div>
 </a>
@@ -221,10 +219,10 @@
                             ◫
                         </div>
 </div>
-<div class="stat-value">
+<div class="stat-value" id="dashboard-produce">
                         Wheat
                     </div>
-<div class="stat-meta">
+<div class="stat-meta" id="dashboard-produce-meta">
                         —
                     </div>
 </a>
@@ -239,16 +237,16 @@
                         </span>
 <div class="stat-icon"><i data-lucide="indian-rupee"></i></div>
 </div>
-<div class="stat-value">
+<div class="stat-value" id="dashboard-payment-status">
                         —
                     </div>
-<div class="stat-meta">
+<div class="stat-meta" id="dashboard-payment-meta">
                         No pending payment
                     </div>
 </a>
 </section>
 <section class="dashboard-grid">
-<article class="card booking-card">
+<article class="card booking-card" id="dashboard-booking-card">
 <div class="booking-hero">
 <div class="booking-hero-top">
 <div>
@@ -430,7 +428,7 @@ On schedule
                         </a>
 </div>
 <div class="card-body">
-<div class="activity-list">
+<div class="activity-list" id="dashboard-activity-list">
 <a
                                 href="my-bookings.html"
                                 class="activity-item"
@@ -531,7 +529,7 @@ On schedule
 <span>
                                     Wheat
                                 </span>
-<strong>
+<strong id="dashboard-wheat-rate">
                                     — / Q
                                 </strong>
 </div>
@@ -545,7 +543,7 @@ On schedule
 <span>
                                     Mustard
                                 </span>
-<strong>
+<strong id="dashboard-mustard-rate">
                                     — / Q
                                 </strong>
 </div>

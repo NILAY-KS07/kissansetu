@@ -145,7 +145,7 @@
 </div>
 <div
                         class="stat-value"
-                        data-field="total-received"
+                        id="payment-total-received"
                     >
                         —
                     </div>
@@ -162,7 +162,7 @@
 </div>
 <div
                         class="stat-value"
-                        data-field="pending-payment"
+                        id="payment-pending"
                     >
                         —
                     </div>
@@ -181,7 +181,7 @@
 </div>
 <div
                         class="stat-value"
-                        data-field="completed-count"
+                        id="payment-completed-count"
                     >
                         4
                     </div>
@@ -209,7 +209,8 @@
 <div
                 class="card"
                 style="margin-bottom: 20px;"
-                data-payment-id="—"
+                id="latest-payment-card"
+                data-payment-id=""
             >
 <div class="card-header">
 <div>
@@ -245,7 +246,7 @@
                                     margin-top:5px;
                                     letter-spacing:-0.8px;
                                 "
-                                data-field="payment-amount"
+                                id="latest-payment-amount"
                             >
                                 —
                             </div>
@@ -269,7 +270,7 @@
                                     font-size:var(--text-sm);
                                     font-weight:700;
                                 "
-                                data-field="payment-id"
+                                id="latest-payment-id"
                             >
                                 —
                             </div>
@@ -284,7 +285,7 @@
                                     font-size:var(--text-sm);
                                     font-weight:700;
                                 "
-                                data-field="booking-id"
+                                id="latest-booking-id"
                             >
                                 —
                             </div>
@@ -299,7 +300,7 @@
                                     font-size:var(--text-sm);
                                     font-weight:700;
                                 "
-                                data-field="payment-date"
+                                id="latest-payment-date"
                             >
                                 —
                             </div>
@@ -395,7 +396,7 @@
                                     </th>
 </tr>
 </thead>
-<tbody>
+<tbody id="payment-history-body">
 <tr
                                     data-payment-id="—"
                                     data-status="completed"
